@@ -1,551 +1,541 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
-	<meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Start your development and design with me.">
-    <meta name="Tanym Barakah" content="Devcrud">
-    <title>Tanym Barakah</title>
-    <!-- font icons -->
-    <link rel="stylesheet" href="assets/vendors/themify-icons/css/themify-icons.css">
-	<link rel="stylesheet" href="assets/css/tanym.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Tanym Barakah — Software Developer, MERN Stack Expert, Android Developer, and Graphic Designer based in Dhaka, Bangladesh." />
+  <meta name="author" content="Tanym Barakah" />
+
+  <!-- Open Graph -->
+  <meta property="og:title"       content="Tanym Barakah — Software Developer" />
+  <meta property="og:description" content="MERN Stack · Android · React Native · Graphic Design" />
+  <meta property="og:type"        content="website" />
+
+  <title>Tanym Barakah — Software Developer</title>
+
+  <!-- Bootstrap 5.3 -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    crossorigin="anonymous"
+  />
+
+  <!-- Bootstrap Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+  />
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
-    
-    <header class="header">
-        <div class="container">
-            <ul class="social-icons pt-3">
-                <li class="social-item"><a class="social-link text-light" href="https://www.facebook.com/tanymbarakah.me" target="_blank"><i class="ti-facebook" aria-hidden="true"></i></a></li>
-                <li class="social-item"><a class="social-link text-light" href="https://twitter.com/TanymBarakah" target="_blank"><i class="ti-twitter" aria-hidden="true"></i></a></li>
-                <li class="social-item"><a class="social-link text-light" href="https://www.linkedin.com/in/tanym-barakah/" target="_blank"><i class="ti-linkedin" aria-hidden="true"></i></a></li>
-                <li class="social-item"><a class="social-link text-light" href="https://www.instagram.com/tanymbarakah/" target="_blank"><i class="ti-instagram" aria-hidden="true"></i></a></li>
-                <li class="social-item"><a class="social-link text-light" href="https://github.com/tanymbarakah" target="_blank"><i class="ti-github" aria-hidden="true"></i></a></li>
-            </ul>  
-            <div class="header-content">
-                <h4 class="header-subtitle" >Hello, I am</h4>
-                <h1 class="header-title">Tanym Barakah</h1>
-            
-                <h6 class="header-mono" >Software Developer</h6>
-            </div>
+
+<body>
+
+  <!-- ============================================================
+       NAVBAR
+       ============================================================ -->
+  <nav class="navbar navbar-expand-lg" id="navbar">
+    <div class="container">
+
+      <!-- Brand -->
+      <a class="nav-brand navbar-brand" href="#hero">
+        Tanym<span>.</span>
+      </a>
+
+      <!-- Mobile controls: theme toggle + hamburger -->
+      <div class="d-flex align-items-center gap-3 d-lg-none">
+        <button class="theme-toggle-btn" id="themeToggleMobile" aria-label="Toggle dark/light mode">
+          <span class="toggle-icon moon">🌙</span>
+          <span class="toggle-icon sun">☀️</span>
+        </button>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+
+      <!-- Nav links -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center gap-lg-1">
+          <li class="nav-item"><a class="nav-link" href="#hero">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+          <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+        </ul>
+
+        <!-- Desktop theme toggle -->
+        <div class="d-none d-lg-flex align-items-center ms-4">
+          <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle dark/light mode">
+            <span class="toggle-icon moon">🌙</span>
+            <span class="toggle-icon sun">☀️</span>
+          </button>
         </div>
-    </header>
-    <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-white" data-spy="affix" data-offset-top="510">
-        <div class="container">
-            <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse mt-sm-20 navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a href="#home" class="nav-link">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#about" class="nav-link">About</a>
-                    </li>
-                    
-                </ul>
-                <ul class="navbar-nav brand">
-                    <img src="assets/imgs/deFAultdp.png" alt="" class="brand-img">
-                    <li class="brand-txt">
-                        <h5 class="brand-title">Tanym Barakah</h5>
-                        <div class="brand-subtitle">Software Developer</div>
-                    </li>
-                </ul>
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a href="#portfolio" class="nav-link">Portfolio</a>
-                    </li>
-                    
-                    <li class="nav-item last-item">
-                        <a href="#contact" class="nav-link">Contact</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <div class="container-fluid">
-        <div id="about" class="row about-section">
-            <div class="col-lg-4 about-card">
-                <h3 class="font-weight-light">Who am I ?</h3>
-                <span class="line mb-5"></span>
-                <h5 class="mb-3">A Software Developer Located In Our Lovely Earth</h5>
-                <p class="mt-20">As a versatile professional bridging advanced engineering with creative strategy, I deliver comprehensive tech and design solutions tailored to drive modern businesses. My core expertise spans robust software and Android app development, dynamic full stack web applications utilizing the MERN ecosystem, and strategic IT consulting to optimize technology infrastructure. Complementing this technical foundation is a strong creative background in graphic design and brand identity, fueled by personal passions for photography and narrative writing. With an innate drive for innovation and an uncompromising eye for detail, I seamlessly blend analytical precision with creative flair to transform complex ideas into functional, visually striking digital realities.</p>
-            </div>
-            <div class="col-lg-4 about-card">
-                <h3 class="font-weight-light">Personal Info</h3>
-                <span class="line mb-5"></span>
-                <ul class="mt40 info list-unstyled">
-                    <li><span>Email</span> : tanymbarakah@outlook.com</li>
-                    <li><span>Phone</span> :  (+880) 1707 748 506</li>
-                    <li><span>Skype</span> : Tanym Barakah </li>
-                    <li><span>Address</span> :  Vatara, Gulshan, Dhaka 1212 </li>
-                </ul>
-                <ul class="social-icons pt-3">
-                    <li class="social-item"><a class="social-link" href="https://www.facebook.com/tanymbarakah.me" target="_blank"><i class="ti-facebook" aria-hidden="true"></i></a></li>
-                    <li class="social-item"><a class="social-link" href="https://twitter.com/TanymBarakah" target="_blank"><i class="ti-twitter" aria-hidden="true"></i></a></li>
-                    <li class="social-item"><a class="social-link" href="https://www.linkedin.com/in/tanym-barakah/" target="_blank"><i class="ti-linkedin" aria-hidden="true"></i></a></li>
-                    <li class="social-item"><a class="social-link" href="https://www.instagram.com/tanymbarakah/" target="_blank"><i class="ti-instagram" aria-hidden="true"></i></a></li>
-                    <li class="social-item"><a class="social-link" href="https://github.com/tanymbarakah" target="_blank"><i class="ti-github" aria-hidden="true"></i></a></li>
-                </ul>  
-            </div>
-            <div class="col-lg-4 about-card">
-                <h3 class="font-weight-light">My Expertise</h3>
-                <span class="line mb-5"></span>
-                <div class="row">
-                    
-                    <div class="col-12 ml-auto mr-3">
-                        <h6>Software Development</h6>
-                        <p class="subtitle"></p>
-                        <hr>
-                    </div>
-                </div>
-                <div class="row">
-                    
-                    <div class="col-12 ml-auto mr-3">
-                        <h6>Web Developmrnt</h6>
-                        <p class="subtitle"</p>
-                        <hr>
-                    </div>
-                </div>
-                <div class="row">
-                    
-                    <div class="col-12 ml-auto mr-3">
-                        <h6>UI Design</h6>
-                        <p class="subtitle"></p>
-                        <hr>
-                    </div>
-                </div>
-                <div class="row">
-                    
-                    <div class="col-12 ml-auto mr-3">
-                        <h6>Graphic Design</h6>
-                        <p class="subtitle"></p>
-                        <hr>
-                    </div>
-                </div>
-            </div>
-        </div>
+      </div>
+
     </div>
+  </nav>
 
-    <!--Resume Section-->
-    <section class="section" id="resume">
-        <div class="container">
-            <h2 class="mb-5"><span class="text-danger">My</span> Resume</h2>
-            <div class="row">
-                <div class="col-md-6 col-lg-4">
-                    <div class="card">
-                       <div class="card-header">
-                            <div class="mt-2">
-                                <h4>Expertise</h4>
-                                <span class="line"></span>  
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h6 class="title text-danger">2022 - Present</h6>
-                            <P>MERN stack Developer</P>
-                            <P class="subtitle">I'm doing the MERN stack development course at the Creative IT Institute from 2022 to the present. I've successfully developed multiple websites and completed projects.</P>
-                            <hr>
-                            <h6 class="title text-danger">2021 - 2022</h6>
-                            <P>Front-end Developer</P>
-                            <P class="subtitle">I've completed the front-end Development course from the Creative IT Institute in 2022. After completing the course, I'm now professionally working on the online marketplace.</P>
-                            <hr>
-                            <h6 class="title text-danger">2016 - 2019</h6>
-                            <P>Graphic Designer</P>
-                            <P class="subtitle">I've learned Graphic design on my own, and I've been doing this professionally since 2016.</P>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card">
-                       <div class="card-header">
-                            <div class="mt-2">
-                                <h4>Education</h4>
-                                <span class="line"></span>  
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h6 class="title text-danger">2022 - Present</h6>
-                            <P>MERN stack development course</P>
-                            <P class="subtitle">I'm doing the MERN stack development course at the Creative IT Institute from 2022 to the present.</P>
-                            <hr>
-                            <h6 class="title text-danger">2013 - 2016</h6>
-                            <P>Higher secoundary School Cirtificate (HSC)</P>
-                            <P class="subtitle">I've completed my Higher Secondary School Certificate (Science Department) from Bijoy Smarani University College, Bhatiary, Shitakunda, Chittagong. with a GPA of 3.08 out of 5.00.</P>
-                            <hr>
-                            <h6 class="title text-danger">2012 - 2013</h6>
-                            <P>Secoundary School Cirtificate (SSC)</P>
-                            <P class="subtitle">I've completed my secondary School certificate (Science department) from Bogra Cantonment Board High School, Bogra, with a GPA of 4.81 out of 5.00.</P>
-                            
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="card">
-                       <div class="card-header">
-                            <div class="pull-left">
-                                <h4 class="mt-2">Skills</h4>
-                                <span class="line"></span>  
-                            </div>
-                        </div>
-                        <div class="card-body pb-2">
-                           <h6>Kotlin</h6>
-                            <div class="progress mb-3">
-                                <div class="progress-bar bg-danger" role="progressbar" style="width: 97%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                            <h6>Jetpack Compose</h6>
-                            <div class="progress mb-3">
-                                <div class="progress-bar bg-danger" role="progressbar" style="width: 90%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                            <h6>MERN</h6>
-                            <div class="progress mb-3">
-                                <div class="progress-bar bg-danger" role="progressbar" style="width: 80%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                            <h6>React Native</h6>
-                            <div class="progress mb-3">
-                                <div class="progress-bar bg-danger" role="progressbar" style="width: 90%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                            <h6>Hilt</h6>
-                            <div class="progress mb-3">
-                                <div class="progress-bar bg-danger" role="progressbar" style="width: 90%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                            <h6>Kotlin Coroutines</h6>
-                            <div class="progress mb-3">
-                                <div class="progress-bar bg-danger" role="progressbar" style="width: 90%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-							<h6>Room</h6>
-                            <div class="progress mb-3">
-                                <div class="progress-bar bg-danger" role="progressbar" style="width: 90%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                       <div class="card-header">
-                            <div class="pull-left">
-                                <h4 class="mt-2">Languages</h4>
-                                <span class="line"></span>  
-                            </div>
-                        </div>
-                        <div class="card-body pb-2">
-                           <h6>English</h6>
-                            <div class="progress mb-3">
-                                <div class="progress-bar bg-danger" role="progressbar" style="width: 97%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                            <h6>BENGALI</h6>
-                            <div class="progress mb-3">
-                                <div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                            <h6>HINDI & URDU</h6>
-                            <div class="progress mb-3">
-                                <div class="progress-bar bg-danger" role="progressbar" style="width: 45%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
+  <!-- ============================================================
+       HERO / HEADER
+       ============================================================ -->
+  <section id="hero">
+    <div class="grid-overlay"></div>
+    <div class="container">
+      <div class="row align-items-center gy-5">
+
+        <!-- Left: Text Content -->
+        <div class="col-lg-7 order-lg-1 order-2">
+
+          <span class="hero-eyebrow reveal">Available for projects</span>
+
+          <h1 class="hero-name reveal reveal-delay-1">
+            Tanym<br>
+            <span class="gradient-text">Barakah.</span>
+          </h1>
+
+          <p class="hero-title reveal reveal-delay-2">Software Developer</p>
+
+          <p class="hero-subtitle reveal reveal-delay-2">
+            A Software Developer Located In Our Lovely Earth 🌍
+          </p>
+
+          <p class="hero-about reveal reveal-delay-3">
+            As a versatile professional bridging advanced engineering with creative strategy,
+            I deliver comprehensive tech and design solutions tailored to drive modern businesses.
+            My core expertise spans robust software and Android app development, dynamic full stack
+            web applications utilizing the MERN ecosystem, and strategic IT consulting to optimize
+            technology infrastructure. Complementing this technical foundation is a strong creative
+            background in graphic design and brand identity, fueled by personal passions for
+            photography and narrative writing. With an innate drive for innovation and an
+            uncompromising eye for detail, I seamlessly blend analytical precision with creative
+            flair to transform complex ideas into functional, visually striking digital realities.
+          </p>
+
+          <div class="hero-cta-group reveal reveal-delay-3">
+            <a href="#contact" class="btn-primary-glass">Get In Touch</a>
+            <a href="#skills"  class="btn-outline-glass">View My Skills</a>
+          </div>
+
+          <!-- Social Links -->
+          <div class="social-links reveal reveal-delay-4">
+            <a href="mailto:tanymbarakah@outlook.com"
+               class="social-link" title="Email" aria-label="Email">
+              <i class="bi bi-envelope-fill"></i>
+            </a>
+            <a href="tel:+8801707748506"
+               class="social-link" title="Phone" aria-label="Phone">
+              <i class="bi bi-telephone-fill"></i>
+            </a>
+            <a href="https://github.com/tanymbarakah" class="social-link" title="GitHub" aria-label="GitHub">
+              <i class="bi bi-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/tanym-barakah/" class="social-link" title="LinkedIn" aria-label="LinkedIn">
+              <i class="bi bi-linkedin"></i>
+            </a>
+            <a href="https://www.fiverr.com/tanymbarakah" class="social-link" title="Fiverr" aria-label="Fiverr">
+              <i class="bi bi-cart-check-fill"></i>
+            </a>
+          </div>
+
+          <!-- Visitor Counter -->
+          <div class="mt-4 reveal reveal-delay-4">
+            <div class="counter-widget">
+              <span class="counter-dot"></span>
+              <span>Page visits:&nbsp;</span>
+              <span id="visitorCount">0</span>
             </div>
-        </div>
-    </section>
+          </div>
 
-    <section class="section bg-dark text-center">
-        <div class="container">
-            <div class="row text-center">
-                <div class="col-md-6 col-lg-3">
-                    <div class="row ">
-                        <div class="col-5 text-right text-light border-right py-3">
-                            <div class="m-auto"><i class="ti-alarm-clock icon-xl"></i></div>
-                        </div>
-                        <div class="col-7 text-left py-3">
-                            <h1 class="text-danger font-weight-bold font40">310</h1>
-                            <p class="text-light mb-1">Hours Worked</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="row">
-                        <div class="col-5 text-right text-light border-right py-3">
-                            <div class="m-auto"><i class="ti-layers-alt icon-xl"></i></div>
-                        </div>
-                        <div class="col-7 text-left py-3">
-                            <h1 class="text-danger font-weight-bold font40">14</h1>
-                            <p class="text-light mb-1">Project Finished</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="row">
-                        <div class="col-5 text-right text-light border-right py-3">
-                            <div class="m-auto"><i class="ti-face-smile icon-xl"></i></div>
-                        </div>
-                        <div class="col-7 text-left py-3">
-                            <h1 class="text-danger font-weight-bold font40">14</h1>
-                            <p class="text-light mb-1">Happy Clients</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="row">
-                        <div class="col-5 text-right text-light border-right py-3">
-                            <div class="m-auto"><i class="ti-heart-broken icon-xl"></i></div>
-                        </div>
-                        <div class="col-7 text-left py-3">
-                            <h1 class="text-danger font-weight-bold font40">1.3k</h1>
-                            <p class="text-light mb-1">Coffee Drinked</p>
-                        </div>
-                    </div>
-                </div>
+        </div>
+
+        <!-- Right: Avatar -->
+        <div class="col-lg-5 order-lg-2 order-1">
+          <div class="hero-avatar-wrap reveal">
+
+            <div class="hero-avatar-ring">
+  <div class="hero-avatar-inner">
+    <img src="./TANYM.jpg" alt="Tanym Barakah" />
+  </div>
+</div>
+
+            <!-- Floating skill badges -->
+            <div class="floating-badge badge-1">
+              <i class="bi bi-phone-fill"></i>&nbsp; Android Dev
             </div>
-        </div>
-    </section>
-
-    <section class="section" id="service">
-        <div class="container">
-            <h2 class="mb-5 pb-4"><span class="text-danger">My</span> Services</h2>
-            <div class="row">
-                <div class="col-md-4 col-sm-6">
-                    <div class="card mb-5">
-                       <div class="card-header has-icon">
-                            <i class="ti-world text-danger" aria-hidden="true"></i>
-                        </div>
-                        <div class="card-body px-4 py-3">
-                            <h5 class="mb-3 card-title text-dark">Web Development</h5>
-                            <P class="subtitle">As a web developer, I offer professional and innovative solutions to create exceptional websites. I specialize in designing user-friendly interfaces, responsive layouts, and custom functionalities. With expertise in HTML, CSS, JavaScript, and CMS platforms, I bring clients' visions to life, ensuring their online presence stands out. From small business websites to e-commerce platforms, I deliver high-quality, visually appealing, and optimized websites that enhance user experiences. Let's collaborate and build your digital success together!</P>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6">
-                    <div class="card mb-5">
-                       <div class="card-header has-icon">
-                            <i class="ti-ruler-pencil text-danger" aria-hidden="true"></i>
-                        </div>
-                        <div class="card-body px-4 py-3">
-                            
-                            <h5 class="mb-3 card-title text-dark">Web Design</h5>
-                            <P class="subtitle">Providing innovative web design solutions that blend creativity and functionality. Crafting visually stunning websites that captivate audiences and reflect your brand's unique identity. From intuitive user interfaces to seamless user experiences, I ensure your website stands out from the crowd. Let's bring your design aspirations to reality!</P>
-                            <br>
-                            <br><br><br>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6">
-                    <div class="card mb-5">
-                       <div class="card-header has-icon">
-                            <i class="ti-mobile text-danger" aria-hidden="true"></i>
-                        </div>
-                        <div class="card-body px-4 py-3">
-                            <h5 class="mb-3 card-title text-dark">App Development</h5>
-                            <P class="subtitle">Unlock the potential of mobile technology with my expert app development services. Creating dynamic and intuitive applications for Android and iOS platforms. From concept to deployment, I tailor solutions to meet your specific needs, leveraging cutting-edge technologies. Let's build an engaging and scalable app that drives user engagement and enhances your business success!</P>
-                            <br>
-                            <br><br>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6">
-                    <div class="card mb-5">
-                       <div class="card-header has-icon">
-                            <i class="ti-vector text-danger" aria-hidden="true"></i>
-                        </div>
-                        <div class="card-body px-4 py-3">
-                            <h5 class="mb-3 card-title text-dark">Graphic Design</h5>
-                            <P class="subtitle">Elevate your brand's visual identity with my exceptional graphic design services. Crafting stunning and impactful designs that resonate with your target audience. From logos and branding materials to promotional graphics and illustrations, I bring creativity and precision to every project. Let's create eye-catching visuals that leave a lasting impression and help your brand stand out in the market!</P>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6">
-                    <div class="card mb-5">
-                       <div class="card-header has-icon">
-                            <i class="ti-support text-danger" aria-hidden="true"></i>
-                        </div>
-                        <div class="card-body px-4 py-3">
-                            <h5 class="mb-3 card-title text-dark">IT Consultancy</h5>
-                            <P class="subtitle">Empowering businesses through strategic IT consulting services. Streamlining operations, enhancing security, and optimizing technology infrastructure. From comprehensive assessments to tailored recommendations, I provide guidance on leveraging IT for competitive advantage. Let's align your IT strategy with your business goals, ensuring efficiency, productivity, and growth in the digital age.</P>
-                        </div>
-                    </div>
-                </div>
-                
+            <div class="floating-badge badge-2">
+              <i class="bi bi-braces"></i>&nbsp; Software Dev
             </div>
-        </div>
-    </section>
-
-   
-    <section class="section bg-dark py-5">
-        <div class="container text-center">
-            <h2 class="text-light mb-5 font-weight-normal">I Am Available For FreeLance</h2>
-            <P class="subtitle" style="color: aliceblue;">For direct contact and potential hiring opportunities, please feel free to reach out to me via email. <br>  (Certain conditions may apply.)</P>
-           <a href="https://www.fiverr.com/tanymbarakah" target="_blank"><button class="btn bg-primary w-lg" >Hire me</button></a>
-        </div>
-    </section>
-
-    <!-- Portfolio Section -->
-    <section class="section bg-custom-gray" id="portfolio">
-        <div class="container">
-            <h1 class="mb-5"><span class="text-danger">My</span> Portfolio</h1>
-            <div class="portfolio">
-                <div class="filters">
-                    <a href="#" data-filter=".new" class="active">
-                        New
-                    </a>
-                    <a href="#" data-filter=".web">
-                        Web
-                    </a>
-                    <a href="#" data-filter=".branding">
-                        Designs
-                    </a>
-                    
-                </div>
-                <div class="portfolio-container"> 
-                    <div class="col-md-6 col-lg-4 web new">
-                        <div class="portfolio-item">
-                            <img src="assets/imgs/web-1.jpg" class="img-fluid">
-                            <div class="content-holder">
-                                <a class="img-popup" href="assets/imgs/web-1.jpg"></a>
-                                <div class="text-holder">
-                                    <h6 class="title">WEB</h6>
-                                    <a href="https://tanymbarakah.github.io/tanymsenvisions.github.io/" target="_blank"><p class="subtitle">Click here to live view</p></a>
-                                </div>
-                            </div>   
-                        </div>             
-                    </div>
-                    <div class="col-md-6 col-lg-4 web new">
-                        <div class="portfolio-item">
-                            <img src="assets/imgs/web-2.jpg" class="img-fluid">
-                            <div class="content-holder">
-                                <a class="img-popup" href="assets/imgs/web-2.jpg"></a>
-                                <div class="text-holder">
-                                    <h6 class="title">WEB</h6>
-                                    <a href="https://tanymbarakah.github.io/landingpage.github.io/" target="_blank"><p class="subtitle">Click here to live view</p></a>
-                                </div>
-                            </div> 
-                        </div>                         
-                    </div>
-                   
-                    <div class="col-md-6 col-lg-4 web">
-                        <div class="portfolio-item">
-                            <img src="assets/imgs/web-4.jpg" class="img-fluid" alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates">
-                            <div class="content-holder">
-                                <a class="img-popup" href="assets/imgs/web-4.jpg"></a>
-                                <div class="text-holder">
-                                    <h6 class="title">WEB</h6>
-                                    <a href=""><p class="subtitle">Click here to live view</p></a>
-                                </div>
-                            </div>
-                        </div>                                                     
-                    </div>
-
-                  
-                    <div class="col-md-6 col-lg-4 web new">
-                        <div class="portfolio-item">
-                            <img src="assets/imgs/web-3.jpg" class="img-fluid" alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates">  
-                           <div class="content-holder">
-                                <a class="img-popup" href="assets/imgs/web-3.jpg"></a>
-                                <div class="text-holder">
-                                    <h6 class="title">WEB</h6>
-                                    <a href="https://tanymbarakah.github.io/landingpage1.github.io/" target="_blank"><p class="subtitle">Click here to live view</p></a>
-                                </div>
-                            </div>
-                        </div>                                                     
-                    </div>
-                    
-                    <div class="col-md-6 col-lg-4 branding new">
-                        <div class="portfolio-item">
-                            <img src="assets/imgs/branding-1.jpg" class="img-fluid" alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates">                        
-                            <div class="content-holder">
-                                <a class="img-popup" href="assets/imgs/branding-1.jpg"></a>
-                                <div class="text-holder">
-                                    <h6 class="title">DESIGNS</h6>
-                                
-                                </div>
-                            </div> 
-                        </div>
-                    </div> 
-                    <div class="col-md-6 col-lg-4 branding">
-                        <div class="portfolio-item">
-                            <img src="assets/imgs/branding-2.jpg" class="img-fluid" alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates">  
-                            <div class="content-holder">
-                                <a class="img-popup" href="assets/imgs/branding-2.jpg"></a>
-                                <div class="text-holder">
-                                    <h6 class="title">DESIGNS</h6>
-                                    
-                                </div>
-                            </div>
-                        </div>                                                     
-                    </div> 
-                    
-                    
-                </div> 
-            </div>  
-        </div>            
-    </section>
-    <!-- End of portfolio section -->
-
-    
-
-    <div class="section contact" id="contact">
-        
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 ">
-                    <div class="contact-form-card d-none d-sm-none d-md-none d-lg-block d-xl-block">
-                        <img src="assets/imgs/contact.jpg" class="img-fluid rounded">
-                        
-
-                        
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="contact-info-card">
-                        <h4 class="contact-title">Get in touch</h4>
-                        <div class="row mb-2">
-                            <div class="col-1 pt-1 mr-1">
-                                <i class="ti-mobile icon-md"></i>
-                            </div>
-                            <div class="col-10 ">
-                                <h6 class="d-inline">Phone : <br> <span class="text-muted"> (+880) 1707 748 506</span></h6>
-                            </div>
-                        </div>
-                        <div class="row mb-2">
-                            <div class="col-1 pt-1 mr-1">
-                                <i class="ti-map-alt icon-md"></i>
-                            </div>
-                            <div class="col-10">
-                                <h6 class="d-inline">Address :<br> <span class="text-muted">Vatara, Gulshan, Dhaka 1212.</span></h6>
-                            </div>
-                        </div>
-                        <div class="row mb-2">
-                            <div class="col-1 pt-1 mr-1">
-                                <i class="ti-envelope icon-md"></i>
-                            </div>
-                            <div class="col-10">
-                                <h6 class="d-inline">Email :<br> <span class="text-muted">tanymbarakah@outlook.com</span></h6>
-                            </div>
-                        </div>
-                        <ul class="social-icons pt-4">
-                            <li class="social-item"><a class="social-link text-dark" href="https://www.facebook.com/tanymbarakah.me" target="_blank"><i class="ti-facebook" aria-hidden="true"></i></a></li>
-                            <li class="social-item"><a class="social-link text-dark" href="https://twitter.com/TanymBarakah" target="_blank"><i class="ti-twitter" aria-hidden="true"></i></a></li>
-                            <li class="social-item"><a class="social-link text-dark" href="https://www.linkedin.com/in/tanym-barakah/" target="_blank"><i class="ti-linkedin" aria-hidden="true"></i></a></li>
-                            <li class="social-item"><a class="social-link text-dark" href="https://www.instagram.com/tanymbarakah/" target="_blank"><i class="ti-instagram" aria-hidden="true"></i></a></li>
-                            <li class="social-item"><a class="social-link text-dark" href="https://github.com/tanymbarakah" target="_blank"><i class="ti-github" aria-hidden="true"></i></a></li>
-                        </ul> 
-                    </div>
-                </div>
+            <div class="floating-badge badge-3">
+              <i class="bi bi-braces"></i>&nbsp; MERN Stack dev
             </div>
 
+          </div>
         </div>
+
+      </div>
     </div>
-    
+  </section>
 
-	<!-- core  -->
-    <script src="assets/vendors/jquery/jquery-3.4.1.js"></script>
-    <script src="assets/vendors/bootstrap/bootstrap.bundle.js"></script>
 
-    <!-- bootstrap 3 affix -->
-    <script src="assets/vendors/bootstrap/bootstrap.affix.js"></script>
+  <!-- ============================================================
+       CONTACT SECTION
+       ============================================================ -->
+  <section id="contact">
+    <div class="container">
 
-    <!-- Isotope  -->
-    <script src="assets/vendors/isotope/isotope.pkgd.js"></script>
-    
-    <!-- Google mpas -->
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCtme10pzgKSPeJVJrG1O3tjR6lk98o4w8&callback=initMap"></script>
+      <span class="section-label reveal">Reach out</span>
+      <h2 class="section-title reveal">Contact Information</h2>
+      <div class="section-divider reveal"></div>
 
-    <script src="assets/js/tanym.js"></script>
+      <div class="row g-4">
+
+        <!-- Email -->
+        <div class="col-sm-6 col-xl-3 reveal reveal-delay-1">
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="bi bi-envelope-fill"></i>
+            </div>
+            <div>
+              <p class="contact-label">Email</p>
+              <p class="contact-value">
+                <a href="mailto:tanymbarakah@outlook.com">tanymbarakah@outlook.com</a>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Phone -->
+        <div class="col-sm-6 col-xl-3 reveal reveal-delay-2">
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="bi bi-telephone-fill"></i>
+            </div>
+            <div>
+              <p class="contact-label">Phone</p>
+              <p class="contact-value">
+                <a href="tel:+8801707748506">(+880) 1707 748 506</a>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Facebook -->
+        <div class="col-sm-6 col-xl-3 reveal reveal-delay-3">
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="bi bi-facebook"></i>
+            </div>
+            <div>
+              <p class="contact-label">Facebook</p>
+              <p class="contact-value"><a href="https://www.facebook.com/tanymbarakah.me">Tanym Barakah</a></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Address -->
+        <div class="col-sm-6 col-xl-3 reveal reveal-delay-4">
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="bi bi-geo-alt-fill"></i>
+            </div>
+            <div>
+              <p class="contact-label">Address</p>
+              <p class="contact-value">Vatara, Gulshan, Dhaka 1212</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SKILLS SECTION
+       ============================================================ -->
+  <section id="skills">
+    <div class="container">
+
+      <span class="section-label reveal">What I work with</span>
+      <h2 class="section-title reveal">Technical Skills</h2>
+      <div class="section-divider reveal"></div>
+
+      <div class="row g-4">
+        <div class="col-lg-6 reveal reveal-delay-1">
+          <div class="glass-card skills-glass-wrap h-100">
+
+            <!-- Skill: Kotlin -->
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name"><i class="bi bi-code-slash me-2 text-primary"></i>Kotlin</span>
+                <span class="skill-pct">98%</span>
+              </div>
+              <div class="skill-track">
+                <div class="skill-bar" data-width="98%"></div>
+              </div>
+            </div>
+
+            <!-- Skill: Jetpack Compose -->
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name"><i class="bi bi-layers-fill me-2 text-primary"></i>Jetpack Compose</span>
+                <span class="skill-pct">98%</span>
+              </div>
+              <div class="skill-track">
+                <div class="skill-bar" data-width="98%"></div>
+              </div>
+            </div>
+
+            <!-- Skill: MERN -->
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name"><i class="bi bi-stack me-2 text-primary"></i>MERN Stack</span>
+                <span class="skill-pct">93%</span>
+              </div>
+              <div class="skill-track">
+                <div class="skill-bar" data-width="93%"></div>
+              </div>
+            </div>
+
+            <!-- Skill: React Native -->
+            <div class="skill-item mb-0">
+              <div class="skill-header">
+                <span class="skill-name"><i class="bi bi-phone-fill me-2 text-primary"></i>React Native</span>
+                <span class="skill-pct">100%</span>
+              </div>
+              <div class="skill-track">
+                <div class="skill-bar" data-width="100%"></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="col-lg-6 reveal reveal-delay-2">
+          <div class="glass-card skills-glass-wrap h-100">
+
+            <!-- Skill: Hilt -->
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name"><i class="bi bi-puzzle-fill me-2 text-primary"></i>Hilt (DI)</span>
+                <span class="skill-pct">97%</span>
+              </div>
+              <div class="skill-track">
+                <div class="skill-bar" data-width="97%"></div>
+              </div>
+            </div>
+
+            <!-- Skill: Kotlin Coroutines -->
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name"><i class="bi bi-arrow-repeat me-2 text-primary"></i>Kotlin Coroutines</span>
+                <span class="skill-pct">95%</span>
+              </div>
+              <div class="skill-track">
+                <div class="skill-bar" data-width="95%"></div>
+              </div>
+            </div>
+
+            <!-- Skill: Room -->
+            <div class="skill-item mb-0">
+              <div class="skill-header">
+                <span class="skill-name"><i class="bi bi-database-fill me-2 text-primary"></i>Room Database</span>
+                <span class="skill-pct">95%</span>
+              </div>
+              <div class="skill-track">
+                <div class="skill-bar" data-width="95%"></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       EDUCATION SECTION
+       ============================================================ -->
+  <section id="education">
+    <div class="container">
+
+      <span class="section-label reveal">Academic background</span>
+      <h2 class="section-title reveal">Education</h2>
+      <div class="section-divider reveal"></div>
+
+      <div class="row justify-content-center">
+        <div class="col-lg-8 col-xl-7">
+          <div class="edu-timeline">
+
+             <!-- Item 1: Self-taught software developer -->
+            <div class="edu-item reveal reveal-delay-1">
+              <div class="edu-dot"></div>
+              <p class="edu-period">2023 — Present</p>
+              <h3 class="edu-degree">Software & App Development</h3>
+              <p class="edu-institution">
+                <i class="bi bi-building me-1"></i> Self-taught
+              </p>
+            </div>
+
+            <!-- Item 2: Creative IT -->
+            <div class="edu-item reveal reveal-delay-2">
+              <div class="edu-dot"></div>
+              <p class="edu-period">2022 — 2023</p>
+              <h3 class="edu-degree">MERN Stack Development Course</h3>
+              <p class="edu-institution">
+                <i class="bi bi-building me-1"></i> Creative IT Institute
+              </p>
+            </div>
+             <!-- Item 3: Creative IT -->
+            <div class="edu-item reveal reveal-delay-3">
+              <div class="edu-dot"></div>
+              <p class="edu-period">2021 — 2022</p>
+              <h3 class="edu-degree">Professional Web Design Course</h3>
+              <p class="edu-institution">
+                <i class="bi bi-building me-1"></i> Creative IT Institute
+              </p>
+            </div>
+            <!-- Item 4: Bachelor -->
+            <div class="edu-item reveal reveal-delay-4">
+              <div class="edu-dot"></div>
+              <p class="edu-period">2016 — was incompleted rebooting now</p>
+              <h3 class="edu-degree">BSc (Hons), Zoology</h3>
+              <p class="edu-institution">
+                <i class="bi bi-building me-1"></i> Khilgaon Model  College
+              </p>
+            </div>
+
+            <!-- Item 5: HSC -->
+            <div class="edu-item reveal reveal-delay-5">
+              <div class="edu-dot"></div>
+              <p class="edu-period">2013 — 2016</p>
+              <h3 class="edu-degree">Higher Secondary Certificate (HSC)</h3>
+              <p class="edu-institution">
+                <i class="bi bi-building me-1"></i>
+                Bijoy Smarani University College, Bhatiary, Shitakunda, Chittagong
+              </p>
+              <span class="edu-gpa">GPA: 4.56 / 5.00</span>
+            </div>
+
+            <!-- Item 6: SSC -->
+            <div class="edu-item reveal reveal-delay-6">
+              <div class="edu-dot"></div>
+              <p class="edu-period">2012 — 2013</p>
+              <h3 class="edu-degree">Secondary School Certificate (SSC)</h3>
+              <p class="edu-institution">
+                <i class="bi bi-building me-1"></i>
+                Bogra Cantonment Board High School, Bogra
+              </p>
+              <span class="edu-gpa">GPA: 4.81 / 5.00</span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       EXPERIENCE SECTION
+       ============================================================ -->
+  <section id="experience">
+    <div class="container">
+
+      <span class="section-label reveal">Career journey</span>
+      <h2 class="section-title reveal">Experience</h2>
+      <div class="section-divider reveal"></div>
+
+      <div class="row g-4">
+
+        <!-- Software & Application Developer-->
+        <div class="col-md-6 col-xl-4 reveal reveal-delay-1">
+          <div class="glass-card exp-card">
+            <div class="exp-icon">🖥️</div>
+            <span class="exp-period-badge">2025 — Present</span>
+            <h3 class="exp-title">Software & App Developer</h3>
+            <p class="exp-description">
+              Self-taught Software & Application Developer 
+              passionate about transforming ideas into functional digital products.
+               Building software, web platforms, and mobile applications with a focus on performance, 
+               usability, and innovation.
+            </p>
+          </div>
+        </div>
+
+        <!-- MERN Stack Developer -->
+        <div class="col-md-6 col-xl-4 reveal reveal-delay-2">
+          <div class="glass-card exp-card">
+            <div class="exp-icon">⚡</div>
+            <span class="exp-period-badge">2022 — 2024</span>
+            <h3 class="exp-title">MERN Stack Developer</h3>
+            <p class="exp-description">
+              Developing multiple production grade websites and completing client projects
+              following advanced training at Creative IT Institute. Specializing in
+              MongoDB, Express.js, React, and Node.js full-stack solutions.
+            </p>
+          </div>
+        </div>
+
+        <!-- Front-end Developer -->
+        <div class="col-md-6 col-xl-4 reveal reveal-delay-3">
+          <div class="glass-card exp-card">
+            <div class="exp-icon">🎨</div>
+            <span class="exp-period-badge">2021 — 2022</span>
+            <h3 class="exp-title">Front-end Developer</h3>
+            <p class="exp-description">
+              Professionally working across online marketplaces after completing a
+              comprehensive front-end development course at Creative IT Institute.
+              Building responsive, accessible UI components for diverse clients.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer>
+    <div class="container">
+      <p class="footer-brand">Tanym<span>.</span></p>
+      <p class="footer-copy">
+        &copy; <span id="currentYear"></span> Tanym Barakah.
+      </p>
+    </div>
+  </footer>
+
+
+  <!-- Back to Top Button -->
+  <button id="backToTop" aria-label="Back to top">
+    <i class="bi bi-chevron-up"></i>
+  </button>
+
+
+  <!-- Bootstrap 5.3 JS Bundle -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    crossorigin="anonymous"
+  ></script>
+
+  <!-- Custom Script -->
+  <script src="script.js"></script>
 
 </body>
 </html>
