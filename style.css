@@ -730,10 +730,20 @@ body:hover .cursor-glow-follower {
 .hero-role-chip {
   display: inline-block;
   font-family: var(--font-mono);
-  font-size: 1.15rem;
-  font-weight: 600;
+  font-size: 1.18rem;
+  font-weight: 700;
   color: var(--accent-primary);
   margin-bottom: 0.5rem;
+}
+
+.hero-role-subtext {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  margin-top: 0.25rem;
+  letter-spacing: 0.02em;
 }
 
 .hero-location-sub {

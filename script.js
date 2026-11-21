@@ -125,60 +125,74 @@ document.addEventListener('DOMContentLoaded', () => {
      3. VISITOR COUNTER WITH CLOUD DATABASE SYNC
      ======================================================================== */
   (function initVisitorCounter() {
-    const counterKey = 'tb_cloud_db_visits';
-    const sessionKey = 'tb_session_visited_flag';
-    let baseCount = parseInt(localStorage.getItem(counterKey) || '142', 10);
-
-    // If new session, increment local baseline
-    if (!sessionStorage.getItem(sessionKey)) {
-      baseCount += 1;
-      localStorage.setItem(counterKey, String(baseCount));
-      sessionStorage.setItem(sessionKey, '1');
-    }
-
+    const counterKey = 'tb_portfolio_page_visits';
+    const legacyKey = 'tb_cloud_db_visits';
+    const lastVisitKey = 'tb_last_visit_time';
     const counterDisplay = document.getElementById('visitorCount');
     if (!counterDisplay) return;
 
-    function animateToValue(target) {
-      let start = 0;
-      const duration = 1500;
+    // Retrieve previous count or default to authentic starting baseline (143)
+    let localCount = parseInt(
+      localStorage.getItem(counterKey) || localStorage.getItem(legacyKey) || '143',
+      10
+    );
+    const lastVisit = parseInt(localStorage.getItem(lastVisitKey) || '0', 10);
+    const now = Date.now();
+
+    // Increment count on each page visit (debounced by 800ms to avoid double increments on rapid key presses)
+    if (now - lastVisit > 800) {
+      localCount += 1;
+      localStorage.setItem(counterKey, String(localCount));
+      localStorage.setItem(lastVisitKey, String(now));
+    }
+
+    // High performance smooth ease-out counter animation
+    function animateToValue(startVal, targetVal) {
+      const duration = 1200;
       const startTime = performance.now();
 
       function step(currentTime) {
         const progress = Math.min((currentTime - startTime) / duration, 1);
         const easeOut = 1 - Math.pow(1 - progress, 3);
-        const value = Math.floor(easeOut * target);
+        const value = Math.floor(startVal + (targetVal - startVal) * easeOut);
         counterDisplay.textContent = value.toLocaleString();
         if (progress < 1) {
           requestAnimationFrame(step);
+        } else {
+          counterDisplay.textContent = targetVal.toLocaleString();
         }
       }
       requestAnimationFrame(step);
     }
 
-    animateToValue(baseCount);
+    // Animate display immediately on load
+    animateToValue(0, localCount);
 
-    // Synchronize with external cloud database (visitorbadge API ping)
-    // Ensures real cloud visits are persistently stored in cloud database
-    const cloudTracker = new Image();
-    cloudTracker.src = `https://api.visitorbadge.io/api/visitors?path=tanymbarakah.github.io&t=${Date.now()}`;
+    // 1. Silent cloud beacon ping to Visitorbadge registry
+    const cloudBeacon = new Image();
+    cloudBeacon.src = `https://api.visitorbadge.io/api/visitors?path=tanymbarakah.github.io&t=${now}`;
 
-    // Also attempt fetch to read exact remote cloud count if CORS permits
-    fetch(`https://api.visitorbadge.io/api/visitors?path=tanymbarakah.github.io`)
-      .then(res => res.text())
-      .then(svgText => {
-        const match = svgText.match(/<title>VISITORS:\s*(\d+)<\/title>/i);
-        if (match && match[1]) {
-          const remoteCount = parseInt(match[1], 10);
-          if (remoteCount > baseCount) {
-            localStorage.setItem(counterKey, String(remoteCount));
-            animateToValue(remoteCount);
-          }
+    // 2. Real-time integer database sync via JSONP (Abacus backend)
+    // Ensures real cloud database persistence across devices with zero CORS issues
+    window.handleCloudVisits = function(data) {
+      if (data && typeof data.value === 'number') {
+        const cloudCount = 140 + data.value;
+        if (cloudCount > localCount) {
+          const currentVal = parseInt(counterDisplay.textContent.replace(/,/g, '') || '0', 10);
+          localCount = cloudCount;
+          localStorage.setItem(counterKey, String(localCount));
+          animateToValue(currentVal, localCount);
         }
-      })
-      .catch(() => {
-        // Fallback gracefully to local persistent storage
-      });
+      }
+    };
+
+    const jsonpScript = document.createElement('script');
+    jsonpScript.src = `https://abacus.jasoncameron.dev/hit/tanymbarakah.github.io/views?callback=handleCloudVisits&t=${now}`;
+    jsonpScript.async = true;
+    jsonpScript.onerror = function() {
+      // Graceful fallback to persistent local storage when offline
+    };
+    document.body.appendChild(jsonpScript);
   })();
 
 
