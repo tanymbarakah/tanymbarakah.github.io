@@ -3,24 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Tanym Barakah — Software Developer, MERN Stack Expert, Android Developer, and Graphic Designer based in Dhaka, Bangladesh." />
+  <meta name="description" content="Tanym Barakah — Software Engineer & App Developer, Native Android, Desktop, MERN Stack, and WordPress Developer based in Dhaka, Bangladesh." />
   <meta name="author" content="Tanym Barakah" />
 
-  <!-- Open Graph -->
-  <meta property="og:title"       content="Tanym Barakah — Software Developer" />
-  <meta property="og:description" content="MERN Stack · Android · React Native · Graphic Design" />
-  <meta property="og:type"        content="website" />
+  <!-- Open Graph / Meta -->
+  <meta property="og:title" content="Tanym Barakah — Software Engineer & App Developer" />
+  <meta property="og:description" content="Software Engineer & App Developer · Android · Desktop · MERN Stack · WordPress" />
+  <meta property="og:type" content="website" />
 
-  <title>Tanym Barakah — Software Developer</title>
+  <title>Tanym Barakah — Software Engineer & App Developer</title>
 
-  <!-- Bootstrap 5.3 -->
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Bootstrap 5.3 CSS -->
   <link
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
     crossorigin="anonymous"
   />
 
-  <!-- Bootstrap Icons -->
+  <!-- Bootstrap Icons 1.11.3 -->
   <link
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
@@ -32,226 +37,182 @@
 
 <body>
 
-  <!-- ============================================================
-       NAVBAR
-       ============================================================ -->
-  <nav class="navbar navbar-expand-lg" id="navbar">
-    <div class="container">
+  <!-- Interactive Theme-Adaptive Cursor Glow Follower -->
+  <div class="cursor-glow-follower" id="cursorGlow" aria-hidden="true"></div>
 
-      <!-- Brand -->
-      <a class="nav-brand navbar-brand" href="#hero">
-        Tanym<span>.</span>
+  <!-- Ambient Dynamic Lighting & Grid -->
+  <div class="ambient-background" aria-hidden="true">
+    <div class="ambient-glow glow-1"></div>
+    <div class="ambient-glow glow-2"></div>
+    <div class="ambient-glow glow-3"></div>
+    <div class="ambient-grid"></div>
+  </div>
+
+  <!-- ============================================================
+       FLOATING ISLAND NAVBAR
+       ============================================================ -->
+  <header class="navbar-wrapper">
+    <nav class="island-nav" id="islandNav" aria-label="Main Navigation">
+      
+      <!-- Brand Logo -->
+      <a class="brand-logo" href="#hero">
+        Tanym<span class="dot">.</span>
       </a>
 
-      <!-- Mobile controls: theme toggle + hamburger -->
-      <div class="d-flex align-items-center gap-3 d-lg-none">
-        <button class="theme-toggle-btn" id="themeToggleMobile" aria-label="Toggle dark/light mode">
-          <span class="toggle-icon moon">🌙</span>
-          <span class="toggle-icon sun">☀️</span>
+      <!-- Desktop Navigation Links -->
+      <ul class="nav-desktop-links d-none d-lg-flex mb-0 ps-0">
+        <li><a class="nav-link-custom" href="#hero">Home</a></li>
+        <li><a class="nav-link-custom" href="#skills">Skills</a></li>
+        <li><a class="nav-link-custom" href="#experience">Experience</a></li>
+        <li><a class="nav-link-custom" href="#education">Education</a></li>
+        <li><a class="nav-link-custom" href="#contact">Contact</a></li>
+      </ul>
+
+      <!-- Action Buttons & Theme Switch -->
+      <div class="nav-actions">
+        <!-- Theme Toggle Button -->
+        <button class="theme-switch-btn" id="themeSwitchBtn" aria-label="Toggle dark and light theme">
+          <i class="bi bi-moon-stars-fill theme-icon-moon"></i>
+          <i class="bi bi-sun-fill theme-icon-sun"></i>
         </button>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
+
+        <!-- CTA Button -->
+        <a href="#contact" class="btn-nav-cta">
+          <span>Let's Talk</span>
+          <i class="bi bi-arrow-right-short"></i>
+        </a>
+
+        <!-- Mobile Hamburger Button -->
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu">
+          <span></span>
+          <span></span>
+          <span></span>
         </button>
       </div>
 
-      <!-- Nav links -->
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center gap-lg-1">
-          <li class="nav-item"><a class="nav-link" href="#hero">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
-          <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
-          <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
-        </ul>
+    </nav>
 
-        <!-- Desktop theme toggle -->
-        <div class="d-none d-lg-flex align-items-center ms-4">
-          <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle dark/light mode">
-            <span class="toggle-icon moon">🌙</span>
-            <span class="toggle-icon sun">☀️</span>
-          </button>
-        </div>
-      </div>
-
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-nav-drawer" id="mobileNavDrawer">
+      <a class="nav-link-custom" href="#hero">Home</a>
+      <a class="nav-link-custom" href="#skills">Skills</a>
+      <a class="nav-link-custom" href="#experience">Experience</a>
+      <a class="nav-link-custom" href="#education">Education</a>
+      <a class="nav-link-custom" href="#contact">Contact</a>
     </div>
-  </nav>
+  </header>
 
 
   <!-- ============================================================
-       HERO / HEADER
+       HERO SECTION
        ============================================================ -->
   <section id="hero">
-    <div class="grid-overlay"></div>
     <div class="container">
       <div class="row align-items-center gy-5">
 
-        <!-- Left: Text Content -->
-        <div class="col-lg-7 order-lg-1 order-2">
-
-          <span class="hero-eyebrow reveal">Available for projects</span>
-
-          <h1 class="hero-name reveal reveal-delay-1">
-            Tanym<br>
-            <span class="gradient-text">Barakah.</span>
-          </h1>
-
-          <p class="hero-title reveal reveal-delay-2">Software Developer</p>
-
-          <p class="hero-subtitle reveal reveal-delay-2">
-            A Software Developer Located In Our Lovely Earth 🌍
-          </p>
-
-          <p class="hero-about reveal reveal-delay-3">
-            As a versatile professional bridging advanced engineering with creative strategy,
-            I deliver comprehensive tech and design solutions tailored to drive modern businesses.
-            My core expertise spans robust software and Android app development, dynamic full stack
-            web applications utilizing the MERN ecosystem, and strategic IT consulting to optimize
-            technology infrastructure. Complementing this technical foundation is a strong creative
-            background in graphic design and brand identity, fueled by personal passions for
-            photography and narrative writing. With an innate drive for innovation and an
-            uncompromising eye for detail, I seamlessly blend analytical precision with creative
-            flair to transform complex ideas into functional, visually striking digital realities.
-          </p>
-
-          <div class="hero-cta-group reveal reveal-delay-3">
-            <a href="#contact" class="btn-primary-glass">Get In Touch</a>
-            <a href="#skills"  class="btn-outline-glass">View My Skills</a>
+        <!-- Left Column: Bio & Intro -->
+        <div class="col-lg-7 order-lg-1 order-2 reveal-fade-up">
+          
+          <!-- Live Status Badge -->
+          <div class="status-badge">
+            <span class="status-pulse-dot"></span>
+            <span>Available for projects</span>
           </div>
 
-          <!-- Social Links -->
-          <div class="social-links reveal reveal-delay-4">
-            <a href="mailto:tanymbarakah@outlook.com"
-               class="social-link" title="Email" aria-label="Email">
+          <!-- Name & Heading -->
+          <h1 class="hero-heading">
+            Hello, I'm<br />
+            <span class="gradient-text">Tanym Barakah.</span>
+          </h1>
+
+          <!-- Role & Subtitle -->
+          <div class="hero-role-chip">Software Engineer & App Developer</div>
+          <div class="hero-location-sub">
+            <span>A Software Engineer & App Developer Located In Our Lovely Earth 🌍</span>
+          </div>
+
+          <!-- About Bio -->
+          <p class="hero-bio-text">
+            As a versatile Software Engineer & App Developer bridging technical excellence with innovative problem-solving, I deliver robust digital solutions tailored to drive modern businesses. My core expertise spans native Android and cross-platform desktop application development, high-performance software engineering, dynamic full stack web platforms utilizing the MERN ecosystem, and scalable WordPress architectures. With an innate drive for innovation, clean architecture, and an uncompromising eye for detail, I seamlessly blend analytical precision with creative flair to transform complex ideas into reliable, high-performance, and visually striking digital realities.
+          </p>
+
+          <!-- CTA Buttons -->
+          <div class="hero-cta-group">
+            <a href="#contact" class="btn-primary-action">
+              <span>Get In Touch</span>
+              <i class="bi bi-arrow-up-right"></i>
+            </a>
+            <a href="#skills" class="btn-secondary-action">
+              <i class="bi bi-code-slash text-primary"></i>
+              <span>View My Skills</span>
+            </a>
+          </div>
+
+          <!-- Social Connect Icons -->
+          <div class="social-links-strip">
+            <a href="mailto:tanymbarakah@outlook.com" class="social-pill" title="Email" aria-label="Email">
               <i class="bi bi-envelope-fill"></i>
             </a>
-            <a href="tel:+8801707748506"
-               class="social-link" title="Phone" aria-label="Phone">
+            <a href="tel:+8801707748506" class="social-pill" title="Phone" aria-label="Phone">
               <i class="bi bi-telephone-fill"></i>
             </a>
-            <a href="https://github.com/tanymbarakah" class="social-link" title="GitHub" aria-label="GitHub">
+            <a href="https://github.com/tanymbarakah" target="_blank" rel="noopener noreferrer" class="social-pill" title="GitHub" aria-label="GitHub">
               <i class="bi bi-github"></i>
             </a>
-            <a href="https://www.linkedin.com/in/tanym-barakah/" class="social-link" title="LinkedIn" aria-label="LinkedIn">
+            <a href="https://www.linkedin.com/in/tanym-barakah/" target="_blank" rel="noopener noreferrer" class="social-pill" title="LinkedIn" aria-label="LinkedIn">
               <i class="bi bi-linkedin"></i>
             </a>
-            <a href="https://www.fiverr.com/tanymbarakah" class="social-link" title="Fiverr" aria-label="Fiverr">
+            <a href="https://www.fiverr.com/tanymbarakah" target="_blank" rel="noopener noreferrer" class="social-pill" title="Fiverr" aria-label="Fiverr">
               <i class="bi bi-cart-check-fill"></i>
             </a>
           </div>
 
-          <!-- Visitor Counter -->
-          <div class="mt-4 reveal reveal-delay-4">
-            <div class="counter-widget">
-              <span class="counter-dot"></span>
+          <!-- Live Visitor Counter -->
+          <div>
+            <div class="visitor-counter-chip">
+              <span class="status-pulse-dot"></span>
               <span>Page visits:&nbsp;</span>
-              <span id="visitorCount">0</span>
+              <span class="visitor-count-number" id="visitorCount">0</span>
             </div>
           </div>
 
         </div>
 
-        <!-- Right: Avatar -->
-        <div class="col-lg-5 order-lg-2 order-1">
-          <div class="hero-avatar-wrap reveal">
+        <!-- Right Column: Avatar Frame & Floating Badges -->
+        <div class="col-lg-5 order-lg-2 order-1 reveal-fade-up delay-2">
+          <div class="hero-avatar-card-container">
+            
+            <!-- Breathing Halo Glow -->
+            <div class="avatar-halo-glow"></div>
 
-            <div class="hero-avatar-ring">
-  <div class="hero-avatar-inner">
-    <img src="./TANYM.jpg" alt="Tanym Barakah" />
-  </div>
-</div>
-
-            <!-- Floating skill badges -->
-            <div class="floating-badge badge-1">
-              <i class="bi bi-phone-fill"></i>&nbsp; Android Dev
-            </div>
-            <div class="floating-badge badge-2">
-              <i class="bi bi-braces"></i>&nbsp; Software Dev
-            </div>
-            <div class="floating-badge badge-3">
-              <i class="bi bi-braces"></i>&nbsp; MERN Stack dev
+            <!-- Avatar Card Frame -->
+            <div class="avatar-frame">
+              <div class="avatar-img-wrap">
+                <img src="./TANYM.jpg" alt="Tanym Barakah — Software Engineer & App Developer" />
+              </div>
             </div>
 
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ============================================================
-       CONTACT SECTION
-       ============================================================ -->
-  <section id="contact">
-    <div class="container">
-
-      <span class="section-label reveal">Reach out</span>
-      <h2 class="section-title reveal">Contact Information</h2>
-      <div class="section-divider reveal"></div>
-
-      <div class="row g-4">
-
-        <!-- Email -->
-        <div class="col-sm-6 col-xl-3 reveal reveal-delay-1">
-          <div class="contact-item">
-            <div class="contact-icon">
-              <i class="bi bi-envelope-fill"></i>
+            <!-- Floating Badges (Floating around avatar perimeter) -->
+            <div class="floating-tech-badge badge-float-1">
+              <i class="bi bi-phone-fill text-primary"></i>
+              <span>Android Dev</span>
             </div>
-            <div>
-              <p class="contact-label">Email</p>
-              <p class="contact-value">
-                <a href="mailto:tanymbarakah@outlook.com">tanymbarakah@outlook.com</a>
-              </p>
-            </div>
-          </div>
-        </div>
 
-        <!-- Phone -->
-        <div class="col-sm-6 col-xl-3 reveal reveal-delay-2">
-          <div class="contact-item">
-            <div class="contact-icon">
-              <i class="bi bi-telephone-fill"></i>
+            <div class="floating-tech-badge badge-float-2">
+              <i class="bi bi-braces text-primary"></i>
+              <span>Software Dev</span>
             </div>
-            <div>
-              <p class="contact-label">Phone</p>
-              <p class="contact-value">
-                <a href="tel:+8801707748506">(+880) 1707 748 506</a>
-              </p>
-            </div>
-          </div>
-        </div>
 
-        <!-- Facebook -->
-        <div class="col-sm-6 col-xl-3 reveal reveal-delay-3">
-          <div class="contact-item">
-            <div class="contact-icon">
-              <i class="bi bi-facebook"></i>
+            <div class="floating-tech-badge badge-float-3">
+              <i class="bi bi-stack text-primary"></i>
+              <span>MERN Stack dev</span>
             </div>
-            <div>
-              <p class="contact-label">Facebook</p>
-              <p class="contact-value"><a href="https://www.facebook.com/tanymbarakah.me">Tanym Barakah</a></p>
-            </div>
-          </div>
-        </div>
 
-        <!-- Address -->
-        <div class="col-sm-6 col-xl-3 reveal reveal-delay-4">
-          <div class="contact-item">
-            <div class="contact-icon">
-              <i class="bi bi-geo-alt-fill"></i>
+            <div class="floating-tech-badge badge-float-4">
+              <i class="bi bi-wordpress" style="color: #38bdf8;"></i>
+              <span>WordPress Dev</span>
             </div>
-            <div>
-              <p class="contact-label">Address</p>
-              <p class="contact-value">Vatara, Gulshan, Dhaka 1212</p>
-            </div>
+
           </div>
         </div>
 
@@ -261,188 +222,435 @@
 
 
   <!-- ============================================================
-       SKILLS SECTION
+       SKILLS SECTION (Interactive Bento Grid)
        ============================================================ -->
   <section id="skills">
     <div class="container">
 
-      <span class="section-label reveal">What I work with</span>
-      <h2 class="section-title reveal">Technical Skills</h2>
-      <div class="section-divider reveal"></div>
-
-      <div class="row g-4">
-        <div class="col-lg-6 reveal reveal-delay-1">
-          <div class="glass-card skills-glass-wrap h-100">
-
-            <!-- Skill: Kotlin -->
-            <div class="skill-item">
-              <div class="skill-header">
-                <span class="skill-name"><i class="bi bi-code-slash me-2 text-primary"></i>Kotlin</span>
-                <span class="skill-pct">98%</span>
-              </div>
-              <div class="skill-track">
-                <div class="skill-bar" data-width="98%"></div>
-              </div>
-            </div>
-
-            <!-- Skill: Jetpack Compose -->
-            <div class="skill-item">
-              <div class="skill-header">
-                <span class="skill-name"><i class="bi bi-layers-fill me-2 text-primary"></i>Jetpack Compose</span>
-                <span class="skill-pct">98%</span>
-              </div>
-              <div class="skill-track">
-                <div class="skill-bar" data-width="98%"></div>
-              </div>
-            </div>
-
-            <!-- Skill: MERN -->
-            <div class="skill-item">
-              <div class="skill-header">
-                <span class="skill-name"><i class="bi bi-stack me-2 text-primary"></i>MERN Stack</span>
-                <span class="skill-pct">93%</span>
-              </div>
-              <div class="skill-track">
-                <div class="skill-bar" data-width="93%"></div>
-              </div>
-            </div>
-
-            <!-- Skill: React Native -->
-            <div class="skill-item mb-0">
-              <div class="skill-header">
-                <span class="skill-name"><i class="bi bi-phone-fill me-2 text-primary"></i>React Native</span>
-                <span class="skill-pct">100%</span>
-              </div>
-              <div class="skill-track">
-                <div class="skill-bar" data-width="100%"></div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-        <div class="col-lg-6 reveal reveal-delay-2">
-          <div class="glass-card skills-glass-wrap h-100">
-
-            <!-- Skill: Hilt -->
-            <div class="skill-item">
-              <div class="skill-header">
-                <span class="skill-name"><i class="bi bi-puzzle-fill me-2 text-primary"></i>Hilt (DI)</span>
-                <span class="skill-pct">97%</span>
-              </div>
-              <div class="skill-track">
-                <div class="skill-bar" data-width="97%"></div>
-              </div>
-            </div>
-
-            <!-- Skill: Kotlin Coroutines -->
-            <div class="skill-item">
-              <div class="skill-header">
-                <span class="skill-name"><i class="bi bi-arrow-repeat me-2 text-primary"></i>Kotlin Coroutines</span>
-                <span class="skill-pct">95%</span>
-              </div>
-              <div class="skill-track">
-                <div class="skill-bar" data-width="95%"></div>
-              </div>
-            </div>
-
-            <!-- Skill: Room -->
-            <div class="skill-item mb-0">
-              <div class="skill-header">
-                <span class="skill-name"><i class="bi bi-database-fill me-2 text-primary"></i>Room Database</span>
-                <span class="skill-pct">95%</span>
-              </div>
-              <div class="skill-track">
-                <div class="skill-bar" data-width="95%"></div>
-              </div>
-            </div>
-
-          </div>
-        </div>
+      <!-- Section Header -->
+      <div class="section-header-center reveal-fade-up">
+        <span class="section-label">
+          <i class="bi bi-lightning-charge-fill"></i> What I work with
+        </span>
+        <h2 class="section-title">Technical Skills</h2>
+        <p class="section-subtitle">
+          Specialized in mobile application architecture, modern full-stack web engineering, and enterprise-grade software development.
+        </p>
       </div>
 
-    </div>
-  </section>
+      <!-- Category Filter Tabs -->
+      <div class="skills-filter-nav reveal-fade-up delay-1">
+        <button class="skill-tab-btn active" data-filter="all">All Skills</button>
+        <button class="skill-tab-btn" data-filter="mobile">Android & Mobile</button>
+        <button class="skill-tab-btn" data-filter="desktop">Desktop Software</button>
+        <button class="skill-tab-btn" data-filter="fullstack">Full-Stack & Web</button>
+        <button class="skill-tab-btn" data-filter="arch">Architecture & DB</button>
+        <button class="skill-tab-btn" data-filter="design">UI/UX & Design</button>
+        <button class="skill-tab-btn" data-filter="wordpress">WordPress & CMS</button>
+      </div>
 
+      <!-- Skills Bento Cards Grid -->
+      <div class="row g-4 justify-content-center" id="skillsGrid">
 
-  <!-- ============================================================
-       EDUCATION SECTION
-       ============================================================ -->
-  <section id="education">
-    <div class="container">
-
-      <span class="section-label reveal">Academic background</span>
-      <h2 class="section-title reveal">Education</h2>
-      <div class="section-divider reveal"></div>
-
-      <div class="row justify-content-center">
-        <div class="col-lg-8 col-xl-7">
-          <div class="edu-timeline">
-
-             <!-- Item 1: Self-taught software developer -->
-            <div class="edu-item reveal reveal-delay-1">
-              <div class="edu-dot"></div>
-              <p class="edu-period">2023 — Present</p>
-              <h3 class="edu-degree">Software & App Development</h3>
-              <p class="edu-institution">
-                <i class="bi bi-building me-1"></i> Self-taught
-              </p>
+        <!-- 1. Kotlin (98%) -->
+        <div class="col-md-6 col-lg-4 skill-grid-col" data-category="mobile">
+          <div class="bento-card spotlight-card skill-card-modern reveal-fade-up delay-1">
+            <div class="skill-card-header">
+              <div class="skill-icon-box">
+                <i class="bi bi-code-slash"></i>
+              </div>
+              <span class="skill-badge-category">Android Native</span>
             </div>
-
-            <!-- Item 2: Creative IT -->
-            <div class="edu-item reveal reveal-delay-2">
-              <div class="edu-dot"></div>
-              <p class="edu-period">2022 — 2023</p>
-              <h3 class="edu-degree">MERN Stack Development Course</h3>
-              <p class="edu-institution">
-                <i class="bi bi-building me-1"></i> Creative IT Institute
-              </p>
+            <div>
+              <div class="skill-title-row">
+                <h3 class="skill-card-title">Kotlin</h3>
+                <span class="skill-percentage-pill font-mono">98%</span>
+              </div>
+              <div class="skill-meter-track">
+                <div class="skill-meter-fill" data-width="98%"></div>
+              </div>
             </div>
-             <!-- Item 3: Creative IT -->
-            <div class="edu-item reveal reveal-delay-3">
-              <div class="edu-dot"></div>
-              <p class="edu-period">2021 — 2022</p>
-              <h3 class="edu-degree">Professional Web Design Course</h3>
-              <p class="edu-institution">
-                <i class="bi bi-building me-1"></i> Creative IT Institute
-              </p>
-            </div>
-            <!-- Item 4: Bachelor -->
-            <div class="edu-item reveal reveal-delay-4">
-              <div class="edu-dot"></div>
-              <p class="edu-period">2016 — was incompleted rebooting now</p>
-              <h3 class="edu-degree">BSc (Hons), Zoology</h3>
-              <p class="edu-institution">
-                <i class="bi bi-building me-1"></i> Khilgaon Model  College
-              </p>
-            </div>
-
-            <!-- Item 5: HSC -->
-            <div class="edu-item reveal reveal-delay-5">
-              <div class="edu-dot"></div>
-              <p class="edu-period">2013 — 2016</p>
-              <h3 class="edu-degree">Higher Secondary Certificate (HSC)</h3>
-              <p class="edu-institution">
-                <i class="bi bi-building me-1"></i>
-                Bijoy Smarani University College, Bhatiary, Shitakunda, Chittagong
-              </p>
-              <span class="edu-gpa">GPA: 4.56 / 5.00</span>
-            </div>
-
-            <!-- Item 6: SSC -->
-            <div class="edu-item reveal reveal-delay-6">
-              <div class="edu-dot"></div>
-              <p class="edu-period">2012 — 2013</p>
-              <h3 class="edu-degree">Secondary School Certificate (SSC)</h3>
-              <p class="edu-institution">
-                <i class="bi bi-building me-1"></i>
-                Bogra Cantonment Board High School, Bogra
-              </p>
-              <span class="edu-gpa">GPA: 4.81 / 5.00</span>
-            </div>
-
           </div>
         </div>
+
+        <!-- 2. Jetpack Compose (98%) -->
+        <div class="col-md-6 col-lg-4 skill-grid-col" data-category="mobile">
+          <div class="bento-card spotlight-card skill-card-modern reveal-fade-up delay-2">
+            <div class="skill-card-header">
+              <div class="skill-icon-box">
+                <i class="bi bi-layers-fill"></i>
+              </div>
+              <span class="skill-badge-category">Modern UI</span>
+            </div>
+            <div>
+              <div class="skill-title-row">
+                <h3 class="skill-card-title">Jetpack Compose</h3>
+                <span class="skill-percentage-pill font-mono">98%</span>
+              </div>
+              <div class="skill-meter-track">
+                <div class="skill-meter-fill" data-width="98%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. React Native (100%) -->
+        <div class="col-md-6 col-lg-4 skill-grid-col" data-category="mobile">
+          <div class="bento-card spotlight-card skill-card-modern reveal-fade-up delay-3">
+            <div class="skill-card-header">
+              <div class="skill-icon-box">
+                <i class="bi bi-phone-fill"></i>
+              </div>
+              <span class="skill-badge-category">Cross-Platform</span>
+            </div>
+            <div>
+              <div class="skill-title-row">
+                <h3 class="skill-card-title">React Native</h3>
+                <span class="skill-percentage-pill font-mono">100%</span>
+              </div>
+              <div class="skill-meter-track">
+                <div class="skill-meter-fill" data-width="100%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Compose for Desktop (KMP) (94%) -->
+        <div class="col-md-6 col-lg-4 skill-grid-col" data-category="desktop">
+          <div class="bento-card spotlight-card skill-card-modern reveal-fade-up delay-1">
+            <div class="skill-card-header">
+              <div class="skill-icon-box">
+                <i class="bi bi-window-desktop"></i>
+              </div>
+              <span class="skill-badge-category">Multiplatform Desktop</span>
+            </div>
+            <div>
+              <div class="skill-title-row">
+                <h3 class="skill-card-title">Compose for Desktop (KMP)</h3>
+                <span class="skill-percentage-pill font-mono">94%</span>
+              </div>
+              <div class="skill-meter-track">
+                <div class="skill-meter-fill" data-width="94%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. Electron.js & Node (92%) -->
+        <div class="col-md-6 col-lg-4 skill-grid-col" data-category="desktop">
+          <div class="bento-card spotlight-card skill-card-modern reveal-fade-up delay-2">
+            <div class="skill-card-header">
+              <div class="skill-icon-box">
+                <i class="bi bi-laptop"></i>
+              </div>
+              <span class="skill-badge-category">Cross-Platform Desktop</span>
+            </div>
+            <div>
+              <div class="skill-title-row">
+                <h3 class="skill-card-title">Electron.js & Node</h3>
+                <span class="skill-percentage-pill font-mono">92%</span>
+              </div>
+              <div class="skill-meter-track">
+                <div class="skill-meter-fill" data-width="92%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. C# / .NET Desktop (88%) -->
+        <div class="col-md-6 col-lg-4 skill-grid-col" data-category="desktop">
+          <div class="bento-card spotlight-card skill-card-modern reveal-fade-up delay-3">
+            <div class="skill-card-header">
+              <div class="skill-icon-box">
+                <i class="bi bi-file-earmark-code"></i>
+              </div>
+              <span class="skill-badge-category">Windows Apps</span>
+            </div>
+            <div>
+              <div class="skill-title-row">
+                <h3 class="skill-card-title">C# / .NET Desktop</h3>
+                <span class="skill-percentage-pill font-mono">88%</span>
+              </div>
+              <div class="skill-meter-track">
+                <div class="skill-meter-fill" data-width="88%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7. Desktop System Architecture & APIs (90%) -->
+        <div class="col-md-6 col-lg-4 skill-grid-col" data-category="desktop">
+          <div class="bento-card spotlight-card skill-card-modern reveal-fade-up delay-1">
+            <div class="skill-card-header">
+              <div class="skill-icon-box">
+                <i class="bi bi-cpu"></i>
+              </div>
+              <span class="skill-badge-category">Native Performance</span>
+            </div>
+            <div>
+              <div class="skill-title-row">
+                <h3 class="skill-card-title">Desktop Architecture & APIs</h3>
+                <span class="skill-percentage-pill font-mono">90%</span>
+              </div>
+              <div class="skill-meter-track">
+                <div class="skill-meter-fill" data-width="90%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 8. Kotlin Coroutines (95%) -->
+        <div class="col-md-6 col-lg-4 skill-grid-col" data-category="mobile">
+          <div class="bento-card spotlight-card skill-card-modern reveal-fade-up delay-2">
+            <div class="skill-card-header">
+              <div class="skill-icon-box">
+                <i class="bi bi-arrow-repeat"></i>
+              </div>
+              <span class="skill-badge-category">Asynchronous</span>
+            </div>
+            <div>
+              <div class="skill-title-row">
+                <h3 class="skill-card-title">Kotlin Coroutines</h3>
+                <span class="skill-percentage-pill font-mono">95%</span>
+              </div>
+              <div class="skill-meter-track">
+                <div class="skill-meter-fill" data-width="95%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 9. Hilt (DI) (97%) -->
+        <div class="col-md-6 col-lg-4 skill-grid-col" data-category="arch">
+          <div class="bento-card spotlight-card skill-card-modern reveal-fade-up delay-3">
+            <div class="skill-card-header">
+              <div class="skill-icon-box">
+                <i class="bi bi-puzzle-fill"></i>
+              </div>
+              <span class="skill-badge-category">Dependency Injection</span>
+            </div>
+            <div>
+              <div class="skill-title-row">
+                <h3 class="skill-card-title">Hilt (DI)</h3>
+                <span class="skill-percentage-pill font-mono">97%</span>
+              </div>
+              <div class="skill-meter-track">
+                <div class="skill-meter-fill" data-width="97%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 10. Room Database (95%) -->
+        <div class="col-md-6 col-lg-4 skill-grid-col" data-category="arch">
+          <div class="bento-card spotlight-card skill-card-modern reveal-fade-up delay-1">
+            <div class="skill-card-header">
+              <div class="skill-icon-box">
+                <i class="bi bi-database-fill"></i>
+              </div>
+              <span class="skill-badge-category">Data Persistence</span>
+            </div>
+            <div>
+              <div class="skill-title-row">
+                <h3 class="skill-card-title">Room Database</h3>
+                <span class="skill-percentage-pill font-mono">95%</span>
+              </div>
+              <div class="skill-meter-track">
+                <div class="skill-meter-fill" data-width="95%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 11. MERN Stack (93%) -->
+        <div class="col-md-6 col-lg-4 skill-grid-col" data-category="fullstack">
+          <div class="bento-card spotlight-card skill-card-modern reveal-fade-up delay-2">
+            <div class="skill-card-header">
+              <div class="skill-icon-box">
+                <i class="bi bi-stack"></i>
+              </div>
+              <span class="skill-badge-category">Full-Stack Web</span>
+            </div>
+            <div>
+              <div class="skill-title-row">
+                <h3 class="skill-card-title">MERN Stack</h3>
+                <span class="skill-percentage-pill font-mono">93%</span>
+              </div>
+              <div class="skill-meter-track">
+                <div class="skill-meter-fill" data-width="93%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 12. Figma (Design Systems) (96%) -->
+        <div class="col-md-6 col-lg-4 skill-grid-col" data-category="design">
+          <div class="bento-card spotlight-card skill-card-modern reveal-fade-up delay-3">
+            <div class="skill-card-header">
+              <div class="skill-icon-box">
+                <i class="bi bi-vector-pen"></i>
+              </div>
+              <span class="skill-badge-category">UI Design & Tokens</span>
+            </div>
+            <div>
+              <div class="skill-title-row">
+                <h3 class="skill-card-title">Figma (Design Systems)</h3>
+                <span class="skill-percentage-pill font-mono">96%</span>
+              </div>
+              <div class="skill-meter-track">
+                <div class="skill-meter-fill" data-width="96%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 13. UI/UX Wireframing & Prototyping (95%) -->
+        <div class="col-md-6 col-lg-4 skill-grid-col" data-category="design">
+          <div class="bento-card spotlight-card skill-card-modern reveal-fade-up delay-1">
+            <div class="skill-card-header">
+              <div class="skill-icon-box">
+                <i class="bi bi-layout-text-window-reverse"></i>
+              </div>
+              <span class="skill-badge-category">User Flows & IA</span>
+            </div>
+            <div>
+              <div class="skill-title-row">
+                <h3 class="skill-card-title">UI/UX Wireframing & Prototyping</h3>
+                <span class="skill-percentage-pill font-mono">95%</span>
+              </div>
+              <div class="skill-meter-track">
+                <div class="skill-meter-fill" data-width="95%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 14. Adobe Photoshop & Illustrator (94%) -->
+        <div class="col-md-6 col-lg-4 skill-grid-col" data-category="design">
+          <div class="bento-card spotlight-card skill-card-modern reveal-fade-up delay-2">
+            <div class="skill-card-header">
+              <div class="skill-icon-box">
+                <i class="bi bi-palette"></i>
+              </div>
+              <span class="skill-badge-category">Graphic Design & Assets</span>
+            </div>
+            <div>
+              <div class="skill-title-row">
+                <h3 class="skill-card-title">Adobe Photoshop & Illustrator</h3>
+                <span class="skill-percentage-pill font-mono">94%</span>
+              </div>
+              <div class="skill-meter-track">
+                <div class="skill-meter-fill" data-width="94%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 15. Design Systems & Micro-Interactions (92%) -->
+        <div class="col-md-6 col-lg-4 skill-grid-col" data-category="design">
+          <div class="bento-card spotlight-card skill-card-modern reveal-fade-up delay-3">
+            <div class="skill-card-header">
+              <div class="skill-icon-box">
+                <i class="bi bi-bezier2"></i>
+              </div>
+              <span class="skill-badge-category">Interaction Design</span>
+            </div>
+            <div>
+              <div class="skill-title-row">
+                <h3 class="skill-card-title">Design Systems & Interactions</h3>
+                <span class="skill-percentage-pill font-mono">92%</span>
+              </div>
+              <div class="skill-meter-track">
+                <div class="skill-meter-fill" data-width="92%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 16. WordPress Core & Theme Dev (96%) -->
+        <div class="col-md-6 col-lg-4 skill-grid-col" data-category="wordpress">
+          <div class="bento-card spotlight-card skill-card-modern reveal-fade-up delay-1">
+            <div class="skill-card-header">
+              <div class="skill-icon-box" style="color: #38bdf8;">
+                <i class="bi bi-wordpress"></i>
+              </div>
+              <span class="skill-badge-category">Custom Themes</span>
+            </div>
+            <div>
+              <div class="skill-title-row">
+                <h3 class="skill-card-title">WordPress Core & Themes</h3>
+                <span class="skill-percentage-pill font-mono">96%</span>
+              </div>
+              <div class="skill-meter-track">
+                <div class="skill-meter-fill" data-width="96%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 17. WooCommerce & E-Commerce (95%) -->
+        <div class="col-md-6 col-lg-4 skill-grid-col" data-category="wordpress">
+          <div class="bento-card spotlight-card skill-card-modern reveal-fade-up delay-2">
+            <div class="skill-card-header">
+              <div class="skill-icon-box" style="color: #9333ea;">
+                <i class="bi bi-cart4"></i>
+              </div>
+              <span class="skill-badge-category">E-Commerce Architecture</span>
+            </div>
+            <div>
+              <div class="skill-title-row">
+                <h3 class="skill-card-title">WooCommerce & E-Commerce</h3>
+                <span class="skill-percentage-pill font-mono">95%</span>
+              </div>
+              <div class="skill-meter-track">
+                <div class="skill-meter-fill" data-width="95%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 18. Custom Plugin Dev & Hooks (92%) -->
+        <div class="col-md-6 col-lg-4 skill-grid-col" data-category="wordpress">
+          <div class="bento-card spotlight-card skill-card-modern reveal-fade-up delay-3">
+            <div class="skill-card-header">
+              <div class="skill-icon-box" style="color: #06b6d4;">
+                <i class="bi bi-puzzle"></i>
+              </div>
+              <span class="skill-badge-category">PHP & REST APIs</span>
+            </div>
+            <div>
+              <div class="skill-title-row">
+                <h3 class="skill-card-title">Custom Plugin Dev & Hooks</h3>
+                <span class="skill-percentage-pill font-mono">92%</span>
+              </div>
+              <div class="skill-meter-track">
+                <div class="skill-meter-fill" data-width="92%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 19. Gutenberg & Full Site Editing (95%) -->
+        <div class="col-md-6 col-lg-4 skill-grid-col" data-category="wordpress">
+          <div class="bento-card spotlight-card skill-card-modern reveal-fade-up delay-1">
+            <div class="skill-card-header">
+              <div class="skill-icon-box" style="color: #f59e0b;">
+                <i class="bi bi-grid-1x2-fill"></i>
+              </div>
+              <span class="skill-badge-category">FSE & Page Builders</span>
+            </div>
+            <div>
+              <div class="skill-title-row">
+                <h3 class="skill-card-title">Gutenberg & Page Builders</h3>
+                <span class="skill-percentage-pill font-mono">95%</span>
+              </div>
+              <div class="skill-meter-track">
+                <div class="skill-meter-fill" data-width="95%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
 
     </div>
@@ -455,56 +663,376 @@
   <section id="experience">
     <div class="container">
 
-      <span class="section-label reveal">Career journey</span>
-      <h2 class="section-title reveal">Experience</h2>
-      <div class="section-divider reveal"></div>
+      <!-- Section Header -->
+      <div class="section-header-center reveal-fade-up">
+        <span class="section-label">
+          <i class="bi bi-briefcase-fill"></i> Career journey
+        </span>
+        <h2 class="section-title">Experience</h2>
+        <p class="section-subtitle">
+          A track record of engineering scalable digital products, client solutions, and high-performance applications.
+        </p>
+      </div>
 
-      <div class="row g-4">
+      <!-- Experience Cards Grid -->
+      <div class="row g-4 justify-content-center">
 
-        <!-- Software & Application Developer-->
-        <div class="col-md-6 col-xl-4 reveal reveal-delay-1">
-          <div class="glass-card exp-card">
-            <div class="exp-icon">🖥️</div>
-            <span class="exp-period-badge">2025 — Present</span>
-            <h3 class="exp-title">Software & App Developer</h3>
-            <p class="exp-description">
-              Self-taught Software & Application Developer 
-              passionate about transforming ideas into functional digital products.
-               Building software, web platforms, and mobile applications with a focus on performance, 
-               usability, and innovation.
+        <!-- Experience 1: Full-Stack & Multiplatform Software Engineer (2024 — Present) -->
+        <div class="col-lg-4 col-md-6 reveal-fade-up delay-1">
+          <div class="bento-card spotlight-card experience-card">
+            <div class="exp-card-header">
+              <div class="exp-emoji-icon">🖥️</div>
+              <span class="exp-period-badge">2024 — Present</span>
+            </div>
+            <h3 class="exp-card-title">Full-Stack & Multiplatform Engineer</h3>
+            <p class="exp-card-text">
+              Engineering multiplatform desktop software (Compose for Desktop, Electron) and native Android mobile solutions alongside enterprise web systems. Focusing on asynchronous concurrency, reactive UI, and robust offline-first architectures.
             </p>
+            <div class="exp-tags-row">
+              <span class="exp-tag">Android Native</span>
+              <span class="exp-tag">Desktop (KMP)</span>
+              <span class="exp-tag">Electron.js</span>
+              <span class="exp-tag">C# / .NET</span>
+            </div>
           </div>
         </div>
 
-        <!-- MERN Stack Developer -->
-        <div class="col-md-6 col-xl-4 reveal reveal-delay-2">
-          <div class="glass-card exp-card">
-            <div class="exp-icon">⚡</div>
-            <span class="exp-period-badge">2022 — 2024</span>
-            <h3 class="exp-title">MERN Stack Developer</h3>
-            <p class="exp-description">
-              Developing multiple production grade websites and completing client projects
-              following advanced training at Creative IT Institute. Specializing in
-              MongoDB, Express.js, React, and Node.js full-stack solutions.
+        <!-- Experience 2: UI/UX Designer & Product Lead (2023 — Present) -->
+        <div class="col-lg-4 col-md-6 reveal-fade-up delay-2">
+          <div class="bento-card spotlight-card experience-card">
+            <div class="exp-card-header">
+              <div class="exp-emoji-icon">🎨</div>
+              <span class="exp-period-badge">2023 — Present</span>
+            </div>
+            <h3 class="exp-card-title">UI/UX Designer & Design Strategist</h3>
+            <p class="exp-card-text">
+              Translating complex business requirements into intuitive, elegant digital products. Designing comprehensive design systems, interactive prototypes, and wireframes in Figma, coupled with vector branding and asset creation in Adobe Creative Suite.
             </p>
+            <div class="exp-tags-row">
+              <span class="exp-tag">Figma</span>
+              <span class="exp-tag">UI/UX Prototyping</span>
+              <span class="exp-tag">Design Systems</span>
+              <span class="exp-tag">Adobe Suite</span>
+            </div>
           </div>
         </div>
 
-        <!-- Front-end Developer -->
-        <div class="col-md-6 col-xl-4 reveal reveal-delay-3">
-          <div class="glass-card exp-card">
-            <div class="exp-icon">🎨</div>
-            <span class="exp-period-badge">2021 — 2022</span>
-            <h3 class="exp-title">Front-end Developer</h3>
-            <p class="exp-description">
-              Professionally working across online marketplaces after completing a
-              comprehensive front-end development course at Creative IT Institute.
-              Building responsive, accessible UI components for diverse clients.
+        <!-- Experience 3: MERN Stack & Web Engineer (2022 — 2024) -->
+        <div class="col-lg-4 col-md-6 reveal-fade-up delay-3">
+          <div class="bento-card spotlight-card experience-card">
+            <div class="exp-card-header">
+              <div class="exp-emoji-icon">⚡</div>
+              <span class="exp-period-badge">2022 — 2024</span>
+            </div>
+            <h3 class="exp-card-title">MERN Stack Developer</h3>
+            <p class="exp-card-text">
+              Developing multiple production-grade websites and completing client projects following advanced training at Creative IT Institute. Specializing in MongoDB schema design, Express.js REST APIs, modern React front-ends, and Node.js solutions.
             </p>
+            <div class="exp-tags-row">
+              <span class="exp-tag">MongoDB</span>
+              <span class="exp-tag">Express.js</span>
+              <span class="exp-tag">React.js</span>
+              <span class="exp-tag">Node.js</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Experience 4: WordPress & CMS Solutions Developer (2022 — 2023) -->
+        <div class="col-lg-6 col-md-6 reveal-fade-up delay-1">
+          <div class="bento-card spotlight-card experience-card">
+            <div class="exp-card-header">
+              <div class="exp-emoji-icon">🌐</div>
+              <span class="exp-period-badge">2022 — 2023</span>
+            </div>
+            <h3 class="exp-card-title">WordPress & CMS Solutions Developer</h3>
+            <p class="exp-card-text">
+              Architecting bespoke WordPress custom themes, custom plugin extensions, and headless WordPress integrations. Developing tailored WooCommerce storefronts with customized checkout flows, performance tuning, and SEO optimization.
+            </p>
+            <div class="exp-tags-row">
+              <span class="exp-tag">WordPress Core</span>
+              <span class="exp-tag">Custom Themes</span>
+              <span class="exp-tag">WooCommerce</span>
+              <span class="exp-tag">Plugin Dev</span>
+              <span class="exp-tag">PHP</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Experience 5: Front-end Developer & Marketplace Specialist (2021 — 2022) -->
+        <div class="col-lg-6 col-md-12 reveal-fade-up delay-2">
+          <div class="bento-card spotlight-card experience-card">
+            <div class="exp-card-header">
+              <div class="exp-emoji-icon">🚀</div>
+              <span class="exp-period-badge">2021 — 2022</span>
+            </div>
+            <h3 class="exp-card-title">Front-end Developer & UI Specialist</h3>
+            <p class="exp-card-text">
+              Delivering responsive, accessible, cross-browser UI components across international client marketplaces after completing a comprehensive front-end web design course at Creative IT Institute.
+            </p>
+            <div class="exp-tags-row">
+              <span class="exp-tag">Responsive Web</span>
+              <span class="exp-tag">HTML5 / CSS3</span>
+              <span class="exp-tag">JavaScript</span>
+              <span class="exp-tag">Marketplaces</span>
+            </div>
           </div>
         </div>
 
       </div>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       EDUCATION SECTION
+       ============================================================ -->
+  <section id="education">
+    <div class="container">
+
+      <!-- Section Header -->
+      <div class="section-header-center reveal-fade-up">
+        <span class="section-label">
+          <i class="bi bi-mortarboard-fill"></i> Academic background
+        </span>
+        <h2 class="section-title">Education</h2>
+        <p class="section-subtitle">
+          Continuous learning, institutional training, and academic foundations.
+        </p>
+      </div>
+
+      <!-- Timeline Structure -->
+      <div class="timeline-track-wrap">
+        <div class="timeline-track-line"></div>
+
+        <!-- Item 1: Self-taught software developer -->
+        <div class="timeline-node-card reveal-fade-up delay-1">
+          <div class="timeline-dot"></div>
+          <div class="bento-card spotlight-card edu-card-content">
+            <span class="edu-period-chip">2023 — Present</span>
+            <h3 class="edu-degree-title">Software & App Development</h3>
+            <p class="edu-institution-name mb-0">
+              <i class="bi bi-building"></i> Self-taught
+            </p>
+          </div>
+        </div>
+
+        <!-- Item 2: Creative IT MERN -->
+        <div class="timeline-node-card reveal-fade-up delay-2">
+          <div class="timeline-dot"></div>
+          <div class="bento-card spotlight-card edu-card-content">
+            <span class="edu-period-chip">2022 — 2023</span>
+            <h3 class="edu-degree-title">MERN Stack Development Course</h3>
+            <p class="edu-institution-name mb-0">
+              <i class="bi bi-building"></i> Creative IT Institute
+            </p>
+          </div>
+        </div>
+
+        <!-- Item 3: Creative IT Web Design -->
+        <div class="timeline-node-card reveal-fade-up delay-3">
+          <div class="timeline-dot"></div>
+          <div class="bento-card spotlight-card edu-card-content">
+            <span class="edu-period-chip">2021 — 2022</span>
+            <h3 class="edu-degree-title">Professional Web Design Course</h3>
+            <p class="edu-institution-name mb-0">
+              <i class="bi bi-building"></i> Creative IT Institute
+            </p>
+          </div>
+        </div>
+
+        <!-- Item 4: Bachelor -->
+        <div class="timeline-node-card reveal-fade-up delay-4">
+          <div class="timeline-dot"></div>
+          <div class="bento-card spotlight-card edu-card-content">
+            <span class="edu-period-chip">2016 — Paused to catch software bugs instead of insects 🐛 (Rebooting now)</span>
+            <h3 class="edu-degree-title">BSc (Hons), Zoology</h3>
+            <p class="edu-institution-name mb-0">
+              <i class="bi bi-building"></i> Khilgaon Model College
+            </p>
+          </div>
+        </div>
+
+        <!-- Item 5: HSC -->
+        <div class="timeline-node-card reveal-fade-up delay-5">
+          <div class="timeline-dot"></div>
+          <div class="bento-card spotlight-card edu-card-content">
+            <span class="edu-period-chip">2013 — 2016</span>
+            <h3 class="edu-degree-title">Higher Secondary Certificate (HSC)</h3>
+            <p class="edu-institution-name">
+              <i class="bi bi-building"></i> Bijoy Smarani University College, Bhatiary, Shitakunda, Chittagong
+            </p>
+            <div>
+              <span class="edu-gpa-badge">
+                <i class="bi bi-award-fill"></i> GPA: 5.00 / 5.00
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 6: SSC -->
+        <div class="timeline-node-card reveal-fade-up delay-5">
+          <div class="timeline-dot"></div>
+          <div class="bento-card spotlight-card edu-card-content">
+            <span class="edu-period-chip">2012 — 2013</span>
+            <h3 class="edu-degree-title">Secondary School Certificate (SSC)</h3>
+            <p class="edu-institution-name">
+              <i class="bi bi-building"></i> Bogra Cantonment Board High School, Bogra
+            </p>
+            <div>
+              <span class="edu-gpa-badge">
+                <i class="bi bi-award-fill"></i> GPA: 5.00 / 5.00
+              </span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       CONTACT SECTION
+       ============================================================ -->
+  <section id="contact">
+    <div class="container">
+
+      <!-- Section Header -->
+      <div class="section-header-center reveal-fade-up">
+        <span class="section-label">
+          <i class="bi bi-send-fill"></i> Reach out
+        </span>
+        <h2 class="section-title">Contact Information</h2>
+        <p class="section-subtitle">
+          Have a project in mind, an opportunity, or simply want to connect? Feel free to reach out anytime.
+        </p>
+      </div>
+
+      <!-- Contact Hub Bento Grid -->
+      <div class="row g-4">
+
+        <!-- Email Card -->
+        <div class="col-md-6 col-xl-3 reveal-fade-up delay-1">
+          <div class="bento-card spotlight-card contact-hub-card">
+            <div>
+              <div class="contact-card-header">
+                <div class="contact-icon-large">
+                  <i class="bi bi-envelope-at-fill"></i>
+                </div>
+                <button class="btn-copy-action" data-copy="tanymbarakah@outlook.com" data-label="Email" title="Copy Email">
+                  <i class="bi bi-copy"></i>
+                </button>
+              </div>
+              <div class="contact-meta-info">
+                <p class="contact-label-title">Email</p>
+                <p class="contact-primary-text">
+                  <a href="mailto:tanymbarakah@outlook.com" class="contact-email-link">tanymbarakah@outlook.com</a>
+                </p>
+              </div>
+            </div>
+            <div class="contact-card-actions">
+              <a href="mailto:tanymbarakah@outlook.com" class="btn-contact-action w-100 justify-content-center">
+                <span>Send Mail</span>
+                <i class="bi bi-arrow-up-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Phone Card -->
+        <div class="col-md-6 col-xl-3 reveal-fade-up delay-2">
+          <div class="bento-card spotlight-card contact-hub-card">
+            <div>
+              <div class="contact-card-header">
+                <div class="contact-icon-large">
+                  <i class="bi bi-telephone-outbound-fill"></i>
+                </div>
+                <button class="btn-copy-action" data-copy="+8801707748506" data-label="Phone" title="Copy Phone Number">
+                  <i class="bi bi-copy"></i>
+                </button>
+              </div>
+              <div class="contact-meta-info">
+                <p class="contact-label-title">Phone</p>
+                <p class="contact-primary-text">
+                  <a href="tel:+8801707748506">(+880) 1707 748 506</a>
+                </p>
+              </div>
+            </div>
+            <div class="contact-card-actions">
+              <a href="tel:+8801707748506" class="btn-contact-action w-100 justify-content-center">
+                <span>Call Now</span>
+                <i class="bi bi-telephone"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Facebook Card -->
+        <div class="col-md-6 col-xl-3 reveal-fade-up delay-3">
+          <div class="bento-card spotlight-card contact-hub-card">
+            <div>
+              <div class="contact-card-header">
+                <div class="contact-icon-large">
+                  <i class="bi bi-facebook"></i>
+                </div>
+              </div>
+              <div class="contact-meta-info">
+                <p class="contact-label-title">Facebook</p>
+                <p class="contact-primary-text">
+                  <a href="https://www.facebook.com/tanymbarakah.me" target="_blank" rel="noopener noreferrer">Tanym Barakah</a>
+                </p>
+              </div>
+            </div>
+            <div class="contact-card-actions">
+              <a href="https://www.facebook.com/tanymbarakah.me" target="_blank" rel="noopener noreferrer" class="btn-contact-action w-100 justify-content-center">
+                <span>View Profile</span>
+                <i class="bi bi-arrow-up-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Address Card -->
+        <div class="col-md-6 col-xl-3 reveal-fade-up delay-4">
+          <div class="bento-card spotlight-card contact-hub-card">
+            <div>
+              <div class="contact-card-header">
+                <div class="contact-icon-large">
+                  <i class="bi bi-geo-alt-fill"></i>
+                </div>
+              </div>
+              <div class="contact-meta-info">
+                <p class="contact-label-title">Address</p>
+                <p class="contact-primary-text">
+                  Vatara, Gulshan, Dhaka 1212
+                </p>
+              </div>
+            </div>
+            <div class="contact-card-actions">
+              <span class="btn-contact-action w-100 justify-content-center" style="cursor: default;">
+                <i class="bi bi-pin-map"></i>
+                <span>Dhaka, BD</span>
+              </span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Quick Message Banner Box -->
+      <div class="connect-banner-box reveal-fade-up delay-2">
+        <h3 class="connect-banner-heading">Ready to bring your ideas to life?</h3>
+        <p class="connect-banner-desc">
+          Whether you need an Android application, a MERN full-stack platform, or software consulting, I'm here to build impactful solutions.
+        </p>
+        <a href="mailto:tanymbarakah@outlook.com?subject=Project%20Inquiry%20for%20Tanym%20Barakah" class="btn-primary-action">
+          <span>Start a Conversation</span>
+          <i class="bi bi-chat-text-fill"></i>
+        </a>
+      </div>
+
     </div>
   </section>
 
@@ -514,18 +1042,55 @@
        ============================================================ -->
   <footer>
     <div class="container">
-      <p class="footer-brand">Tanym<span>.</span></p>
-      <p class="footer-copy">
-        &copy; <span id="currentYear"></span> Tanym Barakah.
-      </p>
+      <div class="footer-content">
+        <div>
+          <a class="brand-logo" href="#hero">
+            Tanym<span class="dot">.</span>
+          </a>
+        </div>
+        <div class="footer-copy-text">
+          &copy; <span id="currentYear"></span> Tanym Barakah. All rights reserved.
+        </div>
+        <div class="social-links-strip">
+          <a href="https://github.com/tanymbarakah" target="_blank" rel="noopener noreferrer" class="social-pill" title="GitHub" aria-label="GitHub">
+            <i class="bi bi-github"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/tanym-barakah/" target="_blank" rel="noopener noreferrer" class="social-pill" title="LinkedIn" aria-label="LinkedIn">
+            <i class="bi bi-linkedin"></i>
+          </a>
+          <a href="https://www.fiverr.com/tanymbarakah" target="_blank" rel="noopener noreferrer" class="social-pill" title="Fiverr" aria-label="Fiverr">
+            <i class="bi bi-cart-check-fill"></i>
+          </a>
+          <a href="mailto:tanymbarakah@outlook.com" class="social-pill" title="Email" aria-label="Email">
+            <i class="bi bi-envelope-fill"></i>
+          </a>
+        </div>
+      </div>
     </div>
   </footer>
 
 
-  <!-- Back to Top Button -->
-  <button id="backToTop" aria-label="Back to top">
+  <!-- Back to Top Button with SVG Circular Progress Indicator -->
+  <button class="back-to-top-btn" id="backToTopBtn" aria-label="Back to top">
+    <svg class="progress-ring-svg" width="48" height="48" viewBox="0 0 48 48">
+      <circle
+        class="progress-ring-circle"
+        stroke-width="3"
+        fill="transparent"
+        r="22"
+        cx="24"
+        cy="24"
+      />
+    </svg>
     <i class="bi bi-chevron-up"></i>
   </button>
+
+
+  <!-- Toast Notification -->
+  <div class="toast-notice" id="toastNotice" role="alert" aria-live="polite">
+    <i class="bi bi-check-circle-fill text-success"></i>
+    <span id="toastText">Copied to clipboard!</span>
+  </div>
 
 
   <!-- Bootstrap 5.3 JS Bundle -->

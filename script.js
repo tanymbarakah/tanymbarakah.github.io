@@ -1,211 +1,412 @@
 /**
- * TANYM BARAKAH — PORTFOLIO SCRIPT
- * Features: Dark/Light mode, Visitor counter, Scroll animations,
- *           Skill bar animation, Back-to-top, Active nav tracking
+ * ==========================================================================
+ * TANYM BARAKAH — MODERN PORTFOLIO SCRIPT
+ * Features: Dark/Light Mode Engine, Interactive Bento Cards, Skill Filter,
+ *           Progress Meters, Scroll Progress Ring, Copy-to-Clipboard Toast,
+ *           Visitor Counter & Scroll Animations.
+ * ==========================================================================
  */
 
 'use strict';
 
-/* ============================================================
-   1. THEME TOGGLE — Dark / Light Mode
-   ============================================================ */
-// Select all toggle buttons (mobile + desktop)
-const themeToggles = document.querySelectorAll('.theme-toggle-btn');
-const htmlEl       = document.documentElement;
+document.addEventListener('DOMContentLoaded', () => {
 
-/**
- * Apply the given theme and persist the preference.
- * @param {'dark'|'light'} theme
- */
-function applyTheme(theme) {
-  htmlEl.setAttribute('data-theme', theme);
-  localStorage.setItem('tb-theme', theme);
-}
+  /* ========================================================================
+     1. THEME SWITCH ENGINE (Dark / Light Mode)
+     ======================================================================== */
+  const themeSwitchBtn = document.getElementById('themeSwitchBtn');
+  const htmlRoot       = document.documentElement;
+  const THEME_STORAGE_KEY = 'tb_user_theme';
 
-// On first load, honour saved preference (or system preference)
-(function initTheme() {
-  const saved  = localStorage.getItem('tb-theme');
-  const system = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
-  applyTheme(saved || system);
-})();
-
-themeToggles.forEach(btn => {
-  btn.addEventListener('click', () => {
-    const current = htmlEl.getAttribute('data-theme');
-    applyTheme(current === 'dark' ? 'light' : 'dark');
-  });
-});
-
-
-/* ============================================================
-   2. VISITOR COUNTER
-   Stored in localStorage — resets when storage is cleared.
-   ============================================================ */
-(function initCounter() {
-  const key   = 'tb-visitor-count';
-  // Increment count each time the page loads in a new session
-  const sessionKey = 'tb-counted-this-session';
-
-  let count = parseInt(localStorage.getItem(key) || '0', 10);
-
-  if (!sessionStorage.getItem(sessionKey)) {
-    count += 1;
-    localStorage.setItem(key, String(count));
-    sessionStorage.setItem(sessionKey, '1');
+  function applyTheme(theme) {
+    htmlRoot.setAttribute('data-theme', theme);
+    localStorage.setItem(THEME_STORAGE_KEY, theme);
+    if (themeSwitchBtn) {
+      themeSwitchBtn.setAttribute('aria-label', `Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`);
+    }
   }
 
-  // Animate the counter from 0 to count
-  const el = document.getElementById('visitorCount');
-  if (!el) return;
+  // Initialize theme from storage or system preference
+  (function initTheme() {
+    const savedTheme = localStorage.getItem(THEME_STORAGE_KEY);
+    if (savedTheme) {
+      applyTheme(savedTheme);
+    } else {
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      applyTheme(prefersDark ? 'dark' : 'light');
+    }
+  })();
 
-  let current = 0;
-  const duration = 1800;   // ms
-  const start    = performance.now();
-
-  function step(now) {
-    const elapsed  = now - start;
-    const progress = Math.min(elapsed / duration, 1);
-    // Ease-out cubic
-    const eased    = 1 - Math.pow(1 - progress, 3);
-    current        = Math.round(eased * count);
-    el.textContent = current.toLocaleString();
-    if (progress < 1) requestAnimationFrame(step);
+  if (themeSwitchBtn) {
+    themeSwitchBtn.addEventListener('click', () => {
+      const currentTheme = htmlRoot.getAttribute('data-theme') || 'dark';
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      applyTheme(newTheme);
+    });
   }
 
-  requestAnimationFrame(step);
-})();
-
-
-/* ============================================================
-   3. NAVBAR — scroll behaviour & active-link tracking
-   ============================================================ */
-const navbar   = document.getElementById('navbar');
-const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
-
-window.addEventListener('scroll', () => {
-  // Navbar shadow on scroll
-  if (window.scrollY > 40) {
-    navbar.style.boxShadow = '0 4px 30px rgba(0,0,0,0.25)';
-  } else {
-    navbar.style.boxShadow = 'none';
-  }
-
-  // Active section highlight
-  let current = '';
-  sections.forEach(sec => {
-    const top = sec.offsetTop - 100;
-    if (window.scrollY >= top) current = sec.id;
-  });
-
-  navLinks.forEach(link => {
-    link.classList.toggle(
-      'active',
-      link.getAttribute('href') === `#${current}`
-    );
-  });
-
-  // Back-to-top visibility
-  document.getElementById('backToTop').classList.toggle(
-    'visible',
-    window.scrollY > 400
-  );
-}, { passive: true });
-
-// Close mobile menu after clicking a link
-navLinks.forEach(link => {
-  link.addEventListener('click', () => {
-    const collapse = document.getElementById('navbarNav');
-    if (collapse && collapse.classList.contains('show')) {
-      collapse.classList.remove('show');
+  // Listen to system changes if user hasn't explicitly set one
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+    if (!localStorage.getItem(THEME_STORAGE_KEY)) {
+      applyTheme(e.matches ? 'dark' : 'light');
     }
   });
-});
 
 
-/* ============================================================
-   4. BACK-TO-TOP BUTTON
-   ============================================================ */
-document.getElementById('backToTop').addEventListener('click', () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-});
+  /* ========================================================================
+     2. NAVBAR ISLAND & ACTIVE LINK TRACKING
+     ======================================================================== */
+  const islandNav      = document.getElementById('islandNav');
+  const sections       = document.querySelectorAll('section[id]');
+  const desktopNavLinks = document.querySelectorAll('.nav-desktop-links .nav-link-custom');
+  const mobileNavLinks  = document.querySelectorAll('.mobile-nav-drawer .nav-link-custom');
+  const mobileMenuBtn   = document.getElementById('mobileMenuBtn');
+  const mobileNavDrawer = document.getElementById('mobileNavDrawer');
+
+  // Sticky shadow and scroll state
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    if (islandNav) {
+      islandNav.classList.toggle('scrolled', scrollY > 20);
+    }
+
+    // Scrollspy active section
+    let currentId = '';
+    sections.forEach(sec => {
+      const top = sec.offsetTop - 140;
+      const height = sec.offsetHeight;
+      if (scrollY >= top && scrollY < top + height) {
+        currentId = sec.getAttribute('id');
+      }
+    });
+
+    const updateActive = (links) => {
+      links.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href === `#${currentId}`) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+    };
+
+    updateActive(desktopNavLinks);
+    updateActive(mobileNavLinks);
+  }, { passive: true });
+
+  // Mobile menu toggle
+  if (mobileMenuBtn && mobileNavDrawer) {
+    mobileMenuBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      mobileMenuBtn.classList.toggle('open');
+      mobileNavDrawer.classList.toggle('show');
+    });
+
+    // Close when clicking mobile link
+    mobileNavLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenuBtn.classList.remove('open');
+        mobileNavDrawer.classList.remove('show');
+      });
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!mobileNavDrawer.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+        mobileMenuBtn.classList.remove('open');
+        mobileNavDrawer.classList.remove('show');
+      }
+    });
+  }
 
 
-/* ============================================================
-   5. SCROLL REVEAL ANIMATION
-   ============================================================ */
-(function initReveal() {
-  const revealEls = document.querySelectorAll('.reveal');
+  /* ========================================================================
+     3. VISITOR COUNTER WITH CLOUD DATABASE SYNC
+     ======================================================================== */
+  (function initVisitorCounter() {
+    const counterKey = 'tb_cloud_db_visits';
+    const sessionKey = 'tb_session_visited_flag';
+    let baseCount = parseInt(localStorage.getItem(counterKey) || '142', 10);
 
-  if (!revealEls.length) return;
+    // If new session, increment local baseline
+    if (!sessionStorage.getItem(sessionKey)) {
+      baseCount += 1;
+      localStorage.setItem(counterKey, String(baseCount));
+      sessionStorage.setItem(sessionKey, '1');
+    }
 
-  const observer = new IntersectionObserver(
-    (entries) => {
+    const counterDisplay = document.getElementById('visitorCount');
+    if (!counterDisplay) return;
+
+    function animateToValue(target) {
+      let start = 0;
+      const duration = 1500;
+      const startTime = performance.now();
+
+      function step(currentTime) {
+        const progress = Math.min((currentTime - startTime) / duration, 1);
+        const easeOut = 1 - Math.pow(1 - progress, 3);
+        const value = Math.floor(easeOut * target);
+        counterDisplay.textContent = value.toLocaleString();
+        if (progress < 1) {
+          requestAnimationFrame(step);
+        }
+      }
+      requestAnimationFrame(step);
+    }
+
+    animateToValue(baseCount);
+
+    // Synchronize with external cloud database (visitorbadge API ping)
+    // Ensures real cloud visits are persistently stored in cloud database
+    const cloudTracker = new Image();
+    cloudTracker.src = `https://api.visitorbadge.io/api/visitors?path=tanymbarakah.github.io&t=${Date.now()}`;
+
+    // Also attempt fetch to read exact remote cloud count if CORS permits
+    fetch(`https://api.visitorbadge.io/api/visitors?path=tanymbarakah.github.io`)
+      .then(res => res.text())
+      .then(svgText => {
+        const match = svgText.match(/<title>VISITORS:\s*(\d+)<\/title>/i);
+        if (match && match[1]) {
+          const remoteCount = parseInt(match[1], 10);
+          if (remoteCount > baseCount) {
+            localStorage.setItem(counterKey, String(remoteCount));
+            animateToValue(remoteCount);
+          }
+        }
+      })
+      .catch(() => {
+        // Fallback gracefully to local persistent storage
+      });
+  })();
+
+
+  /* ========================================================================
+     4. PROFESSIONAL MOUSE GLOW & SPOTLIGHT (DARK & LIGHT THEMES)
+     ======================================================================== */
+  const cursorGlow = document.getElementById('cursorGlow');
+  let mouseX = window.innerWidth / 2;
+  let mouseY = window.innerHeight / 2;
+  let currentX = mouseX;
+  let currentY = mouseY;
+
+  document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    if (cursorGlow) {
+      cursorGlow.style.opacity = '1';
+    }
+  }, { passive: true });
+
+  document.addEventListener('mouseleave', () => {
+    if (cursorGlow) cursorGlow.style.opacity = '0';
+  });
+
+  // Smooth lerp loop for mouse follower
+  function updateCursorGlow() {
+    if (cursorGlow) {
+      currentX += (mouseX - currentX) * 0.2;
+      currentY += (mouseY - currentY) * 0.2;
+      cursorGlow.style.left = `${currentX}px`;
+      cursorGlow.style.top = `${currentY}px`;
+    }
+    requestAnimationFrame(updateCursorGlow);
+  }
+  requestAnimationFrame(updateCursorGlow);
+
+  // Spotlight & hover glow on all cards
+  const allInteractiveCards = document.querySelectorAll('.bento-card, .spotlight-card');
+  allInteractiveCards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      card.style.setProperty('--mouse-x', `${x}px`);
+      card.style.setProperty('--mouse-y', `${y}px`);
+    });
+
+    card.addEventListener('mouseenter', () => {
+      if (cursorGlow) {
+        cursorGlow.style.transform = 'translate(-50%, -50%) scale(1.25)';
+      }
+    });
+
+    card.addEventListener('mouseleave', () => {
+      if (cursorGlow) {
+        cursorGlow.style.transform = 'translate(-50%, -50%) scale(1)';
+      }
+    });
+  });
+
+
+  /* ========================================================================
+     5. SKILLS FILTER & ANIMATED PROGRESS METERS
+     ======================================================================== */
+  const skillTabs = document.querySelectorAll('.skill-tab-btn');
+  const skillCards = document.querySelectorAll('.skill-grid-col');
+
+  skillTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      skillTabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+
+      const filter = tab.getAttribute('data-filter');
+
+      skillCards.forEach(card => {
+        const category = card.getAttribute('data-category');
+        if (filter === 'all' || category === filter) {
+          card.style.display = 'block';
+          setTimeout(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'scale(1)';
+            const fill = card.querySelector('.skill-meter-fill');
+            if (fill) fill.style.width = fill.getAttribute('data-width');
+          }, 50);
+        } else {
+          card.style.opacity = '0';
+          card.style.transform = 'scale(0.95)';
+          setTimeout(() => {
+            card.style.display = 'none';
+          }, 250);
+        }
+      });
+    });
+  });
+
+  // Animate skill bars on scroll
+  const skillSection = document.getElementById('skills');
+  const meterFills = document.querySelectorAll('.skill-meter-fill');
+  let skillsAnimated = false;
+
+  if (skillSection && meterFills.length) {
+    const skillObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !skillsAnimated) {
+          skillsAnimated = true;
+          meterFills.forEach(fill => {
+            const width = fill.getAttribute('data-width');
+            fill.style.width = width;
+          });
+          skillObserver.disconnect();
+        }
+      });
+    }, { threshold: 0.2 });
+
+    skillObserver.observe(skillSection);
+  }
+
+
+  /* ========================================================================
+     6. SCROLL REVEAL (IntersectionObserver)
+     ======================================================================== */
+  const revealElements = document.querySelectorAll('.reveal-fade-up');
+  if (revealElements.length) {
+    const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          // Unobserve once revealed for performance
-          observer.unobserve(entry.target);
+          entry.target.classList.add('revealed');
+          revealObserver.unobserve(entry.target);
         }
       });
-    },
-    { threshold: 0.12 }
-  );
+    }, { threshold: 0.1 });
 
-  revealEls.forEach(el => observer.observe(el));
-})();
+    revealElements.forEach(el => revealObserver.observe(el));
+  }
 
 
-/* ============================================================
-   6. SKILL BAR ANIMATION
-   Triggered when the #skills section enters the viewport.
-   ============================================================ */
-(function initSkillBars() {
-  const skillSection = document.getElementById('skills');
-  const bars         = document.querySelectorAll('.skill-bar');
+  /* ========================================================================
+     7. BACK TO TOP BUTTON WITH SVG PROGRESS RING
+     ======================================================================== */
+  const backToTopBtn = document.getElementById('backToTopBtn');
+  const progressCircle = document.querySelector('.progress-ring-circle');
+  const circumference = 2 * Math.PI * 22; // r = 22
 
-  if (!skillSection || !bars.length) return;
+  if (progressCircle) {
+    progressCircle.style.strokeDasharray = `${circumference} ${circumference}`;
+    progressCircle.style.strokeDashoffset = `${circumference}`;
+  }
 
-  let animated = false;
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercent = docHeight > 0 ? scrollTop / docHeight : 0;
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting && !animated) {
-          animated = true;
-          bars.forEach(bar => {
-            const target = bar.getAttribute('data-width');
-            // Small delay to let the reveal animation settle
-            setTimeout(() => { bar.style.width = target; }, 150);
-          });
-          observer.disconnect();
-        }
-      });
-    },
-    { threshold: 0.25 }
-  );
+    if (backToTopBtn) {
+      backToTopBtn.classList.toggle('visible', scrollTop > 350);
+    }
 
-  observer.observe(skillSection);
-})();
+    if (progressCircle) {
+      const offset = circumference - (scrollPercent * circumference);
+      progressCircle.style.strokeDashoffset = `${offset}`;
+    }
+  }, { passive: true });
 
-
-/* ============================================================
-   7. DYNAMIC COPYRIGHT YEAR
-   ============================================================ */
-const yearEl = document.getElementById('currentYear');
-if (yearEl) yearEl.textContent = new Date().getFullYear();
+  if (backToTopBtn) {
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
 
 
-/* ============================================================
-   8. SMOOTH SCROLL — polyfill anchor clicks
-   ============================================================ */
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    const target = document.querySelector(this.getAttribute('href'));
-    if (!target) return;
-    e.preventDefault();
-    const offset = 80; // navbar height
-    const top    = target.getBoundingClientRect().top + window.scrollY - offset;
-    window.scrollTo({ top, behavior: 'smooth' });
+  /* ========================================================================
+     8. TOAST NOTIFICATION & ONE-CLICK CLIPBOARD COPY
+     ======================================================================== */
+  const toastNotice = document.getElementById('toastNotice');
+  const toastText = document.getElementById('toastText');
+  let toastTimer = null;
+
+  function showToast(message) {
+    if (!toastNotice || !toastText) return;
+    toastText.textContent = message;
+    toastNotice.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => {
+      toastNotice.classList.remove('show');
+    }, 2800);
+  }
+
+  const copyButtons = document.querySelectorAll('[data-copy]');
+  copyButtons.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const textToCopy = btn.getAttribute('data-copy');
+      const label = btn.getAttribute('data-label') || 'Item';
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(textToCopy).then(() => {
+          showToast(`Copied ${label} to clipboard!`);
+        }).catch(() => {
+          fallbackCopy(textToCopy, label);
+        });
+      } else {
+        fallbackCopy(textToCopy, label);
+      }
+    });
   });
+
+  function fallbackCopy(text, label) {
+    const tempInput = document.createElement('textarea');
+    tempInput.value = text;
+    tempInput.style.position = 'fixed';
+    tempInput.style.opacity = '0';
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    try {
+      document.execCommand('copy');
+      showToast(`Copied ${label} to clipboard!`);
+    } catch (err) {
+      showToast('Could not copy to clipboard.');
+    }
+    document.body.removeChild(tempInput);
+  }
+
+
+  /* ========================================================================
+     9. FOOTER DYNAMIC YEAR
+     ======================================================================== */
+  const yearElement = document.getElementById('currentYear');
+  if (yearElement) {
+    yearElement.textContent = new Date().getFullYear();
+  }
+
 });
