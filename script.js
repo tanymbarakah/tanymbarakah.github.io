@@ -168,29 +168,35 @@ document.addEventListener('DOMContentLoaded', () => {
     // Animate display immediately on load
     animateToValue(0, localCount);
 
-    // 1. Silent cloud beacon ping to Visitorbadge registry
+    // 1. Dual cloud beacon tracking (Visitorbadge & GitHub Profile Tracker)
+    const nowTs = Date.now();
     const cloudBeacon = new Image();
-    cloudBeacon.src = `https://api.visitorbadge.io/api/visitors?path=tanymbarakah.github.io&t=${now}`;
+    cloudBeacon.src = `https://api.visitorbadge.io/api/visitors?path=tanymbarakah.github.io&t=${nowTs}`;
+    const ghBeacon = new Image();
+    ghBeacon.src = `https://komarev.com/ghpvc/?username=tanymbarakah&t=${nowTs}`;
 
-    // 2. Real-time integer database sync via JSONP (Abacus backend)
-    // Ensures real cloud database persistence across devices with zero CORS issues
+    // 2. Real-time global integer database sync via JSONP (Abacus cloud backend)
+    // Synchronizes across ALL devices (mobile, desktop, tablet) globally with zero CORS issues
     window.handleCloudVisits = function(data) {
       if (data && typeof data.value === 'number') {
         const cloudCount = 140 + data.value;
+        const currentDisplayed = parseInt(counterDisplay.textContent.replace(/,/g, '') || '0', 10);
         if (cloudCount > localCount) {
-          const currentVal = parseInt(counterDisplay.textContent.replace(/,/g, '') || '0', 10);
           localCount = cloudCount;
           localStorage.setItem(counterKey, String(localCount));
-          animateToValue(currentVal, localCount);
+          animateToValue(currentDisplayed, localCount);
+        } else if (localCount > cloudCount) {
+          // If local has advanced higher, ensure local storage remains authoritative
+          localStorage.setItem(counterKey, String(localCount));
         }
       }
     };
 
     const jsonpScript = document.createElement('script');
-    jsonpScript.src = `https://abacus.jasoncameron.dev/hit/tanymbarakah.github.io/views?callback=handleCloudVisits&t=${now}`;
+    jsonpScript.src = `https://abacus.jasoncameron.dev/hit/tanymbarakah.github.io/views?callback=handleCloudVisits&t=${nowTs}`;
     jsonpScript.async = true;
     jsonpScript.onerror = function() {
-      // Graceful fallback to persistent local storage when offline
+      // Graceful offline fallback to persistent local storage
     };
     document.body.appendChild(jsonpScript);
   })();
