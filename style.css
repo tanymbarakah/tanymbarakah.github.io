@@ -727,6 +727,17 @@ body:hover .cursor-glow-follower {
   }
 }
 
+.hero-bn-name {
+  display: inline-block;
+  font-size: 0.48em;
+  font-weight: 600;
+  color: var(--text-muted);
+  vertical-align: middle;
+  margin-left: 0.45rem;
+  letter-spacing: 0;
+  opacity: 0.88;
+}
+
 .hero-role-chip {
   display: inline-block;
   font-family: var(--font-mono);
